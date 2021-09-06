@@ -7,6 +7,8 @@ import Companies from './components/Companies';
 import CompanyDetail from './components/CompanyDetail';
 import Map from './components/Map'
 import AddressForm from './components/AddressForm';
+import Shifts from './components/Shifts';
+import ShiftDetail from './components/ShiftDetail';
 
 require('dotenv').config();
 
@@ -35,7 +37,7 @@ function App() {
 
          {/* Routing for companies list */}
          <Route exact path = '/companies'
-            render = {() => <Companies/>}
+            render = {() => <Companies />}
         />
 
         {/* Routing for company detail */}
@@ -43,10 +45,22 @@ function App() {
             render = {routerProps => (<CompanyDetail match={routerProps.match} />)}
         />
 
+        {/* Routing for shift list */}
+        <Route exact path = '/shifts'
+            render = {() => <Shifts />}
+        />
+
+        {/* Routing for shift detail */}
+        <Route exact path = '/shifts/:id'
+            render = {routerProps => (<ShiftDetail match={routerProps.match} />)}
+        />
+
         {/* Routing for map  */}
         <Route exact path = '/map'
             render = {() => <Map />}
         />
+
+        
 
       </main>
     </div>

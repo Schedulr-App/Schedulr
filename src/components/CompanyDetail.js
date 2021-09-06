@@ -17,7 +17,7 @@ const CompanyDetail = ({match}) => {
 
     return (
         <div>
-            <h1>{companyState.name}</h1>
+            <h1>{companyState.contact_name}</h1>
         </div>
     )
 }

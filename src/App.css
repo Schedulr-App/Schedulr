@@ -1,3 +1,7 @@
+body{
+  background-color: rgb(250, 245, 245);
+}
+
 .App {
   text-align: center;
 }
@@ -49,6 +53,7 @@ nav {
   text-decoration: none;
   color: black;
   padding: 10px;
+  background-color: white;
 }
 
 .navItem:hover {
@@ -58,4 +63,25 @@ nav {
 .map {
   width: 100%;
   height: 100%;
+}
+
+.shiftReq {
+  border: 1px solid black;
+  margin: 10px 10%;
+  background-color: white;
+}
+
+.shiftReq:hover{
+  background-color: whitesmoke;
+}
+
+.companyReq {
+  border: 1px solid black;
+  margin: 10px 10%;
+  background-color: white;
+  padding: 10px;
+}
+
+.companyReq:hover{
+  background-color: whitesmoke;
 }

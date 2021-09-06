@@ -20,9 +20,10 @@ const Companies = () => {
 
     return (
         <div>
+        <h1>Company List</h1>
            {listState.map(item => {
                return(
-                   <div>
+                   <div class='companyReq'> 
                        <Link to={`/companies/${item.id}`}>{item.name}</Link>
                    </div>
                )
