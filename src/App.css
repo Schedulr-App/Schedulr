@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+nav {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.navItem {
+  border: 1px black solid;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.navItem:hover {
+  background-color: whitesmoke;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
