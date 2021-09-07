@@ -9,6 +9,8 @@ import Map from './components/Map'
 import AddressForm from './components/AddressForm';
 import Shifts from './components/Shifts';
 import ShiftDetail from './components/ShiftDetail';
+import CompanyForm from './components/CompanyForm'
+import EditCompany from './components/EditCompany';
 
 require('dotenv').config();
 
@@ -20,6 +22,20 @@ function App() {
     .then(res => console.log(res.data.results[0].geometry.location))
   }
 
+  function createCompany(data){
+    const payload = data
+    console.log(payload)
+    axios.post(`http://localhost:8000/companies/`, payload)
+      .then(res => console.log(res))
+  }
+
+  function updateCompany(data, id){
+    const payload = data
+    console.log(payload)
+    axios.put(`http://localhost:8000/companies/${id}`, payload)
+      .then(res => console.log(res))
+  }
+
   // handleRequest()
 
   const [addressState, setAddressState] = useState({
@@ -29,10 +45,12 @@ function App() {
     zip: ''
   })
 
+  const [companyState, setCompanyState] = useState({})
+
   return (
     <div className="App">
       <Nav />
-      <AddressForm addressState={addressState} setAddressState={setAddressState} handleRequest={handleRequest}/>
+      {/* <AddressForm addressState={addressState} setAddressState={setAddressState} handleRequest={handleRequest}/> */}
       <main>
 
          {/* Routing for companies list */}
@@ -40,9 +58,19 @@ function App() {
             render = {() => <Companies />}
         />
 
+         {/* Routing for new company */}
+         <Route exact path = '/companies/new'
+            render = {() => <CompanyForm createCompany={createCompany}/>}
+        />
+
         {/* Routing for company detail */}
         <Route exact path = '/companies/:id'
-            render = {routerProps => (<CompanyDetail match={routerProps.match} />)}
+            render = {routerProps => (<CompanyDetail match={routerProps.match} companyState={companyState} key={companyState.id} setCompanyState={setCompanyState}/>)}
+        />
+
+        {/* Routing for company edit*/}
+        <Route exact path = '/companies/:id/edit'
+            render = {() => <EditCompany updateCompany={updateCompany} companyState={companyState} key={companyState.id}/>}
         />
 
         {/* Routing for shift list */}

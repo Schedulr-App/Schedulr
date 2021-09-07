@@ -11,11 +11,9 @@ const mapContainerStyle = {
     height: '50vh'
 }
 
-const center = {lat: 41.7462935, lng: -87.7262466}
+const Map = ({location}) => {
 
-const position = {lat: 41.7462935, lng: -87.7262466}
-
-const Map = () => {
+    console.log(location)
 
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_API_KEY
@@ -26,8 +24,8 @@ const Map = () => {
     
     return (
         <div>
-            <GoogleMap mapContainerStyle={mapContainerStyle} zoom={14} center={center}>
-                <Marker position={position}/>
+            <GoogleMap mapContainerStyle={mapContainerStyle} zoom={14} center={location}>
+                <Marker position={location}/>
             </GoogleMap>
         </div>
     )
