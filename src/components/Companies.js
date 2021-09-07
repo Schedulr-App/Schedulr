@@ -20,11 +20,15 @@ const Companies = () => {
 
     return (
         <div>
+        <h1>Company List</h1>
+        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/companies/new'}>New Company</Link>
            {listState.map(item => {
                return(
-                   <div>
-                       <Link to={`/companies/${item.id}`}>{item.name}</Link>
+                <Link to={`/companies/${item.id}`} style={{textDecoration: 'none', color: 'black'}} >
+                   <div class='companyReq'> 
+                       <p>{item.name}</p>
                    </div>
+                   </Link>
                )
            })}
         </div>

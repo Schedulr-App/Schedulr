@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <div>
             <nav>
-                <Link class='navItem' >Shifts</Link>
+                <Link class='navItem' to={'/shifts'}>Shifts</Link>
                 <Link class='navItem' to={`/companies`} >Companies</Link>
                 <Link class='navItem' >Workers</Link>
                 <Link class='navItem' >My Profile</Link>
