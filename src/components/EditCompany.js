@@ -28,7 +28,7 @@ const EditCompany = ({updateCompany, companyState}) => {
                 <input type="text" id = 'contact_phone' onChange={handleChange} value={formState.contact_phone}/>
                 <label htmlFor="name">Contact Position: </label>
                 <input type="text" id = 'contact_position' onChange={handleChange} value={formState.contact_position}/>
-                <button type='submit' >Update Restaurant</button>
+                <button type='submit' >Update Company</button>
             </form>
         </div>
     )

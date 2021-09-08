@@ -11,6 +11,7 @@ import Shifts from './components/Shifts';
 import ShiftDetail from './components/ShiftDetail';
 import CompanyForm from './components/CompanyForm'
 import EditCompany from './components/EditCompany';
+import { Redirect } from 'react-router';
 
 require('dotenv').config();
 

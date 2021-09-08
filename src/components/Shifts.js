@@ -25,7 +25,7 @@ const Shifts = () => {
                         <Link to={`/shifts/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
                             <p>Title: {item.title}</p>
                             <p>Date: {item.start_time.split('T', 1)}</p>
-                            <p>Fill Rate: {item.staff_claimed.length} / {item.staff_needed}</p>
+                            <p>Fill Rate: {item.staff_claimed} / {item.staff_needed}</p>
                         </Link>
                     </div>
                )
