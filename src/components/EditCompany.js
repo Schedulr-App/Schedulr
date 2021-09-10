@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 
-const EditCompany = ({updateCompany, companyState}) => {
+const EditCompany = ({handleUpdate, companyState}) => {
 
     const [formState, setFormState] = useState(companyState)
 
     function handleSubmit(event){
         event.preventDefault();
         console.log(formState)
-        updateCompany(formState, companyState.id)
+        handleUpdate(formState, 'companies', companyState.id)
     }
 
     function handleChange(event){

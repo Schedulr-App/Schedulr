@@ -1,14 +1,14 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react';
 
-const CompanyForm = ({handleCreate}) => {
+const ShiftForm = ({createShift}) => {
 
     const [formState, setFormState] = useState({})
 
     function handleSubmit(event){
         event.preventDefault();
         console.log(formState)
-        handleCreate(formState, 'companies')
+        createShift(formState)
     }
 
     function handleChange(event){
@@ -18,8 +18,8 @@ const CompanyForm = ({handleCreate}) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Company Name: </label>
-                <input type="text" id = 'name' onChange={handleChange} />
+                <label htmlFor="title">Shift Title: </label>
+                <input type="text" id = 'title' onChange={handleChange} />
                 <label htmlFor="name">Company Contact: </label>
                 <input type="text" id = 'contact_name' onChange={handleChange} />
                 <label htmlFor="name">Contact Email: </label>
@@ -34,4 +34,4 @@ const CompanyForm = ({handleCreate}) => {
     )
 }
 
-export default CompanyForm
+export default ShiftForm

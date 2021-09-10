@@ -95,8 +95,16 @@ nav {
   display: flex;
 }
 
+.positionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 10vh;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .col {
-  flex: 1
+  flex: 1;
 }
 
 .button {
@@ -106,5 +114,18 @@ nav {
 }
 
 .button:hover{
+  background-color: whitesmoke;
+}
+
+.positionReq {
+  border: 1px solid black;
+  flex: 1 1 25vw;
+  margin: 10px;
+  background-color: white;
+  max-width: 25vw;
+  padding: 10px;
+}
+
+.positionReq:hover {
   background-color: whitesmoke;
 }
