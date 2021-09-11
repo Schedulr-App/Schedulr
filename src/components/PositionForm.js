@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const PositionForm = ({handleCreate}) => {
 
@@ -26,6 +27,7 @@ const PositionForm = ({handleCreate}) => {
                 <br/>
                 <button type='submit' class='button' >Create Position</button>
             </form>
+            <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/positions'}>Cancel</Link>
         </div>
     )
 }

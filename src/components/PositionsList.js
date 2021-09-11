@@ -16,21 +16,22 @@ const PositionsList = () => {
 
     return (
         <div>
-        <h1>Position List</h1>
-        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/positions/new'}>Add New Position</Link>
-        <div className="positionContainer">
-           {listState.map(item => {
-               return(
+            <h1>Position List</h1>
+            <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/positions/new'}>Add New Position</Link>
+            <div className="positionContainer">
+            {listState.map(item => {
+                return(
+                    <Link to={`/positions/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
                         <div class='col positionReq'>
-                            <Link to={`/positions/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
-                                <p>Name: {item.name}</p>
-                                <p>Description: {item.description}</p>
-                                {/* Fill rate is not counting the number of workers, it is grabbing the id of one worker */}
-                            </Link>
+                            <p>Name: {item.name}</p>
+                            <p>Description: {item.description}</p>
+                            {/* Fill rate is not counting the number of workers, it is grabbing the id of one worker */}
                         </div>
-               )
-            })}
-            </div>
+                    </Link>
+                        )
+                    })
+                }
+                </div>
         </div>
     )
 }

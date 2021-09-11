@@ -5,19 +5,22 @@ import ShiftForm from './ShiftForm'
 
 const CompanySelect = () => {
 
-    const [listState, setListState] = useState([])
+    const [companyList, setCompanyList] = useState([])
+    const [positionList, setPositionList] = useState([])
     const [formState, setFormState] = useState()
     const [shiftState, setShiftState]= useState({})
 
     useEffect(() => {
         axios.get(`http://localhost:8000/companies`)
           .then(res => {
-            setListState(res.data)
+            setCompanyList(res.data)
             setShiftState({})
           })
+          axios.get(`http://localhost:8000/positions`)
+          .then(res => {
+            setPositionList(res.data)
+          })
     }, [])
-
-    console.log(listState)
 
     function handleSubmit(event){
         event.preventDefault();
@@ -36,16 +39,16 @@ const CompanySelect = () => {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="company">Select the company: </label>
                 <select name="company" id="company" onChange={handleChange}>
-                    {listState.map(item => {
+                    {companyList.map(item => {
                         return (
                             <option value={item.name} id='company'>{item.name}</option>
                         )
                     })}
                 </select>
                 <br/>
-                <button type='submit' class='button'>Next</button>
-                {shiftState.company ? <ShiftForm shiftState={shiftState} setShiftState={setShiftState} /> : null}
+                {shiftState.company ? null : <button type='submit' class='button'>Next</button>}
             </form>
+            {shiftState.company ? <ShiftForm shiftState={shiftState} setShiftState={setShiftState} positionList={positionList} formState={formState} setFormState={setFormState}/> : null}
         </div>
     )
 }

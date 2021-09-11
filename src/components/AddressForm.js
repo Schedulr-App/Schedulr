@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
+import axios from 'axios';
 
-const AddressForm = ({addressState, setAddressState, handleRequest}) => {
-
-    const [formState, setFormState] = useState()
+const AddressForm = ({handleRequest, formState, setFormState}) => {
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -13,19 +12,22 @@ const AddressForm = ({addressState, setAddressState, handleRequest}) => {
             state: formState.state,
             zip: formState.zip
         }
-        setAddressState(addressObj)
         setFormState(formState, addressObj)
-        console.log(addressObj)
-    }
-
-    function editAddress(){
-        const address = `${addressState.street} ${addressState.city} ${addressState.state} ${addressState.zip}`
-        console.log(address)
-        const urlConfig = address.replace(/\s+/g, '+')
-        console.log(urlConfig)
-        handleRequest(urlConfig)
-        
-    }
+        const editAddress = () => {
+            const address = `${addressObj.street} ${addressObj.city} ${addressObj.state} ${addressObj.zip}`
+            console.log(address)
+            const urlConfig = address.replace(/\s+/g, '+')
+            console.log(urlConfig)
+            axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${urlConfig}&key=${process.env.REACT_APP_API_KEY}`)
+                .then(res => setFormState(formState => {
+                    return{...formState, lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng}
+                })
+                )
+                .then(console.log(formState))
+            }
+        editAddress()
+        }
+    
 
     // editAddress()
 
@@ -33,6 +35,7 @@ const AddressForm = ({addressState, setAddressState, handleRequest}) => {
         setFormState({...formState, [event.target.id]: event.target.value})
         console.log(formState)
     }
+    console.log(formState)
     return (
         <div>
             <form onSubmit={handleSubmit}>

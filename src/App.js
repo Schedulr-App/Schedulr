@@ -16,6 +16,8 @@ import ShiftForm from './components/ShiftForm';
 import CompanySelect from './components/CompanySelect';
 import PositionsList from './components/PositionsList';
 import PositionForm from './components/PositionForm';
+import PositionDetail from './components/PositionDetail';
+import EditPosition from './components/EditPosition';
 
 require('dotenv').config();
 
@@ -52,6 +54,8 @@ function App() {
 
   const [companyState, setCompanyState] = useState({})
 
+  const [positionState, setPositionState] = useState({})
+
   return (
     <div className="App">
       <Nav />
@@ -68,16 +72,16 @@ function App() {
             render = {() => <CompanyForm handleCreate={handleCreate}/>}
         />
 
+        {/* Routing for company edit*/}
+        <Route exact path = '/companies/:id/edit'
+            render = {() => <EditCompany handleUpdate={handleUpdate} companyState={companyState} key={companyState.id}/>}
+        />
 
         {/* Routing for company detail */}
         <Route exact path = '/companies/:id'
             render = {routerProps => (<CompanyDetail match={routerProps.match} companyState={companyState} key={companyState.id} setCompanyState={setCompanyState}/>)}
         />
 
-        {/* Routing for company edit*/}
-        <Route exact path = '/companies/:id/edit'
-            render = {() => <EditCompany handleUpdate={handleUpdate} companyState={companyState} key={companyState.id}/>}
-        />
 
         {/* Routing for new company */}
         <Route exact path = '/shifts/new'
@@ -95,19 +99,25 @@ function App() {
             render = {routerProps => (<ShiftDetail match={routerProps.match} />)}
         />
 
-        {/* Routing for positions list */}
-        <Route exact path = '/positions'
-            render = {() => <PositionsList />}
-        />
         
          {/* Routing for new position */}
          <Route exact path = '/positions/new'
             render = {() => <PositionForm handleCreate={handleCreate}/>}
         />
 
-        {/* Routing for new company */}
+        {/* Routing for company edit*/}
         <Route exact path = '/positions/:id/edit'
-            render = {() => <CompanyForm handleUpdate={handleUpdate}/>}
+           render = {() => <EditPosition handleUpdate={handleUpdate} positionState={positionState} key={positionState.id}/>}
+       />
+
+        {/* Routing for new company */}
+        <Route exact path = '/positions/:id'
+            render = {routerProps => (<PositionDetail handleUpdate={handleUpdate} setPositionState={setPositionState} positionState={positionState} key={positionState.id} match={routerProps.match}/>)}
+        />
+
+        {/* Routing for positions list */}
+        <Route exact path = '/positions'
+            render = {() => <PositionsList />}
         />
 
       </main>
