@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
+
 const Companies = () => {
 
     const [listState, setListState] = useState([])
@@ -21,7 +22,7 @@ const Companies = () => {
     return (
         <div>
         <h1>Company List</h1>
-        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/companies/new'}>New Company</Link>
+        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/companies/new'}>Add Company</Link>
            {listState.map(item => {
                return(
                 <Link to={`/companies/${item.id}`} style={{textDecoration: 'none', color: 'black'}} >

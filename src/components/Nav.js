@@ -5,7 +5,17 @@ const Nav = () => {
     return (
         <div>
             <nav>
-                <Link class='navItem' to={'/shifts'}>Shifts</Link>
+                <div class="dropdown">
+                    <button class="navItem dropbtn">Shifts
+                        {/* <i class="fa fa-caret-down"></i> */}
+                    </button>
+                    <div class="dropdown-content">
+                       <Link class = 'navDrop' to={'/shifts'}>List</Link>
+                       <br/>
+                       <Link class = 'navDrop' to={'/positions'}>Positions</Link>
+                    </div>
+                </div>
+                {/* <Link class='navItem' to={'/shifts'}>Shifts</Link> */}
                 <Link class='navItem' to={`/companies`} >Companies</Link>
                 <Link class='navItem' >Workers</Link>
                 <Link class='navItem' >My Profile</Link>

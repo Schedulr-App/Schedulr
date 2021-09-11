@@ -11,7 +11,7 @@ const ShiftDetail = ({match}) => {
     useEffect(() => {
         axios.get(`http://localhost:8000/shifts/${match.params.id}`)
           .then(res => {
-            setShiftState(res.data)
+            setShiftState(res.data[0])
             setLocationState({
                 lat: parseFloat(res.data.lat),
                 lng: parseFloat(res.data.lng)
@@ -25,7 +25,7 @@ const ShiftDetail = ({match}) => {
         <div>
            {shiftState.company ?  
            <div>
-                <p>{shiftState.company} - {shiftState.title}</p>
+                <p>{shiftState.company__name} - {shiftState.title}</p>
                 <button>Edit</button>
                 <div className="shiftContainer">
                     <div class='times col'>

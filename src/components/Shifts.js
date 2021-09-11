@@ -19,13 +19,15 @@ const Shifts = () => {
     return (
         <div>
         <h1>Shift List</h1>
+        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/shifts/new'}>Add Shift</Link>
            {listState.map(item => {
                return(
                     <div  class='shiftReq'>
                         <Link to={`/shifts/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
                             <p>Title: {item.title}</p>
                             <p>Date: {item.start_time.split('T', 1)}</p>
-                            <p>Fill Rate: {item.staff_claimed.length} / {item.staff_needed}</p>
+                            <p>Fill Rate: {item.staff_claimed} / {item.staff_needed}</p>
+                            {/* Fill rate is not counting the number of workers, it is grabbing the id of one worker */}
                         </Link>
                     </div>
                )

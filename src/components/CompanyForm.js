@@ -1,14 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 
-const CompanyForm = ({createCompany}) => {
+const CompanyForm = ({handleCreate}) => {
 
     const [formState, setFormState] = useState({})
 
     function handleSubmit(event){
         event.preventDefault();
         console.log(formState)
-        createCompany(formState)
+        handleCreate(formState, 'companies')
     }
 
     function handleChange(event){
@@ -28,7 +28,7 @@ const CompanyForm = ({createCompany}) => {
                 <input type="text" id = 'contact_phone' onChange={handleChange} />
                 <label htmlFor="name">Contact Position: </label>
                 <input type="text" id = 'contact_position' onChange={handleChange} />
-                <button type='submit' >Create Restaurant</button>
+                <button type='submit' >Create Company</button>
             </form>
         </div>
     )
