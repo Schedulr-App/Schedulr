@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddressForm from './AddressForm';
 
-const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormState}) => {
+const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormState, handleCreate}) => {
 
 
     function handleSubmit(event){
@@ -53,7 +53,7 @@ const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormS
                 <input type="number" min='1' step='any' id = 'billrate' onChange={handleChange} />
                 {shiftState.billrate ? null : <button type='submit' class='button'>Next</button>}
             </form>
-            {shiftState.billrate ? <AddressForm shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState}/> : null}
+            {shiftState.billrate ? <AddressForm shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate}/> : null}
         </div>
     )
 }

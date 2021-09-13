@@ -18,6 +18,7 @@ import PositionsList from './components/PositionsList';
 import PositionForm from './components/PositionForm';
 import PositionDetail from './components/PositionDetail';
 import EditPosition from './components/EditPosition';
+import Workforce from './components/Workforce';
 
 require('dotenv').config();
 
@@ -85,7 +86,7 @@ function App() {
 
         {/* Routing for new company */}
         <Route exact path = '/shifts/new'
-            render = {() => <CompanySelect />}
+            render = {() => <CompanySelect handlecreate={handleCreate}/>}
         />
 
         {/* Routing for shift list */}
@@ -118,6 +119,11 @@ function App() {
         {/* Routing for positions list */}
         <Route exact path = '/positions'
             render = {() => <PositionsList />}
+        />
+
+         {/* Routing for companies list */}
+         <Route exact path = '/workforce'
+            render = {() => <Workforce />}
         />
 
       </main>

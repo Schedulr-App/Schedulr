@@ -12,14 +12,16 @@ const ShiftDetail = ({match}) => {
         axios.get(`http://localhost:8000/shifts/${match.params.id}`)
           .then(res => {
             setShiftState(res.data[0])
+            console.log(res.data[0])
             setLocationState({
-                lat: parseFloat(res.data.lat),
-                lng: parseFloat(res.data.lng)
+                lat: parseFloat(res.data[0].lat),
+                lng: parseFloat(res.data[0].lng)
             })
           })
     }, [])
 
     console.log(shiftState)
+    console.log(locationState)
 
     return (
         <div>
@@ -40,8 +42,10 @@ const ShiftDetail = ({match}) => {
                         <p>On-site Contact: {shiftState.on_site_contact}</p>
                     </div>
                 </div>
-                <div class='mapContainer'>
-                    {/* <Map location={locationState} /> */}
+                <hr/>
+                <p>Shift Location</p>
+                <div class='mapBorder'>
+                    <Map location={locationState} />
                 </div>
             </div>
             :
