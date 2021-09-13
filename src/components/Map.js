@@ -8,7 +8,8 @@ import {
 
 const mapContainerStyle = {
     width: '50vw',
-    height: '50vh'
+    height: '50vh',
+    border: '4px solid teal'
 }
 
 const Map = ({location}) => {
@@ -23,10 +24,12 @@ const Map = ({location}) => {
     if(!isLoaded) return 'Loading map'
     
     return (
-        <div>
-            <GoogleMap mapContainerStyle={mapContainerStyle} zoom={14} center={location}>
-                <Marker position={location}/>
-            </GoogleMap>
+        <div class='mapContainer'>
+            <div class='map'>
+                <GoogleMap mapContainerStyle={mapContainerStyle} zoom={14} center={location} class='map'>
+                    <Marker position={location}/>
+                </GoogleMap>
+            </div>
         </div>
     )
 }

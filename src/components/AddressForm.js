@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
+import StaffForm from './StaffForm';
 
-const AddressForm = ({handleRequest, formState, setFormState}) => {
+const AddressForm = ({handleRequest, formState, setFormState, shiftState, setShiftState, handleCreate}) => {
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -23,9 +24,9 @@ const AddressForm = ({handleRequest, formState, setFormState}) => {
                     return{...formState, lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng}
                 })
                 )
-                .then(console.log(formState))
             }
         editAddress()
+        setShiftState(formState)
         }
     
 
@@ -65,8 +66,9 @@ const AddressForm = ({handleRequest, formState, setFormState}) => {
                 onChange={handleChange}
             />
               
-                <button type="submit">Submit</button>
+              {shiftState.lat ? null : <button type='submit' class='button'>Next</button>}
             </form>
+            {shiftState.lat ? <StaffForm shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate} /> : null}
         </div>
     )
 }

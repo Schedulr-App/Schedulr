@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import ShiftForm from './ShiftForm'
 
-const CompanySelect = () => {
+const CompanySelect = ({handleCreate}) => {
 
     const [companyList, setCompanyList] = useState([])
     const [positionList, setPositionList] = useState([])
@@ -48,7 +48,7 @@ const CompanySelect = () => {
                 <br/>
                 {shiftState.company ? null : <button type='submit' class='button'>Next</button>}
             </form>
-            {shiftState.company ? <ShiftForm shiftState={shiftState} setShiftState={setShiftState} positionList={positionList} formState={formState} setFormState={setFormState}/> : null}
+            {shiftState.company ? <ShiftForm shiftState={shiftState} setShiftState={setShiftState} positionList={positionList} formState={formState} setFormState={setFormState} handleCreate={handleCreate}/> : null}
         </div>
     )
 }

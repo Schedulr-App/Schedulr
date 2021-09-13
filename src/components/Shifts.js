@@ -18,8 +18,9 @@ const Shifts = () => {
 
     return (
         <div>
-        <h1>Shift List</h1>
-        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/shifts/new'}>Add Shift</Link>
+        <h1>Posted Shifts
+        <Link class = 'button addShift' style={{textDecoration: 'none', color: 'black'}} to={'/shifts/new'}>Add Shift</Link>
+        </h1>
            {listState.map(item => {
                return(
                     <div  class='shiftReq'>
