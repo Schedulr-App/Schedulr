@@ -27,15 +27,19 @@ const ShiftDetail = ({match}) => {
         <div>
            {shiftState.company ?  
            <div>
-                <p>{shiftState.company__name} - {shiftState.title}</p>
+                <p>{shiftState.company__name} | {shiftState.title}</p>
                 <button>Edit</button>
                 <div className="shiftContainer">
-                    <div class='times col'>
-                        <p>Date: {shiftState.start_time.split('T', 1)}</p>
-                        <p>Start Time: {shiftState.start_time.split('T')[1].split('Z')}</p>
-                        <p>End Time: {shiftState.end_time.split('T')[1].split('Z')}</p>
+                    <div class='times '>
+                        <p>Date & Time</p>
+                        <hr/>
+                        <p>{shiftState.start_time.split('T', 1)}</p>
+                        <p>Start: {shiftState.start_time.split('T')[1].split('Z')}</p>
+                        <p>End: {shiftState.end_time.split('T')[1].split('Z')}</p>
                     </div>
-                    <div class = 'shiftDetails col'>
+                    <div class = 'shiftDetails '>
+                        <p>Details</p>
+                        <hr/>
                         <p>Description: {shiftState.description}</p>
                         <p>Uniform: {shiftState.uniform}</p>
                         <p>Meeting Location: {shiftState.meeting_location}</p>

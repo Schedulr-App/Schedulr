@@ -16,9 +16,7 @@ const AddressForm = ({handleRequest, formState, setFormState, shiftState, setShi
         setFormState(formState, addressObj)
         const editAddress = () => {
             const address = `${addressObj.street} ${addressObj.city} ${addressObj.state} ${addressObj.zip}`
-            console.log(address)
             const urlConfig = address.replace(/\s+/g, '+')
-            console.log(urlConfig)
             axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${urlConfig}&key=${process.env.REACT_APP_API_KEY}`)
                 .then(res => setFormState(formState => {
                     return{...formState, lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng}
