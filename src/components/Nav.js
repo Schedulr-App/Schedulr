@@ -17,8 +17,8 @@ const Nav = () => {
                 </div>
                 {/* <Link class='navItem' to={'/shifts'}>Shifts</Link> */}
                 <Link class='navItem' to={`/companies`} >Companies</Link>
-                <Link class='navItem' to={`/workforce`} >Workers</Link>
-                <Link class='navItem' >My Profile</Link>
+                <Link class='navItem' to={`/workforce`} >Workforce</Link>
+                {/* <Link class='navItem' >My Profile</Link> */}
             </nav>
         </div>
     )

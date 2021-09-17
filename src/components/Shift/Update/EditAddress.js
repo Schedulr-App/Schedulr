@@ -65,8 +65,8 @@ const EditAddress = ({formState, setFormState, shiftState, setShiftState}) => {
                     onChange={handleChange}
                     value={formState.zip}
                 />
-                
-                <button type='submit' class='button'>Update</button>
+                <br/>
+                <button type='submit' class='button'>Save Changes</button>
             </form>
         </div>
     )

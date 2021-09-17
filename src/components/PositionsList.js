@@ -21,7 +21,7 @@ const PositionsList = () => {
             <div className="positionContainer">
             {listState.map(item => {
                 return(
-                    <Link to={`/positions/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
+                    <Link to={`/position/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
                         <div class='col positionReq'>
                             <p>Name: {item.name}</p>
                             <p>Description: {item.description}</p>

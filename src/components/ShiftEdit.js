@@ -19,14 +19,14 @@ const ShiftEdit = ({shiftState, setShiftState}) => {
     return (
         <div>
             <div class='updateContainer'>
-                <div class='col'>
+                <div class='col form'>
                     <EditDetails shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState}/>
                 </div>
-                <div class='col'>
+                <div class='col form'>
                     <EditAddress shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState}/>
                 </div>
             </div>
-            <button onClick={handleSubmit}class='button'>Save Changes</button>
+            <button onClick={handleSubmit}class='button update'>Update Shift</button>
         </div>
     )
 }
