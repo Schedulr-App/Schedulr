@@ -2,17 +2,17 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Map from './Map'
+import { Link } from 'react-router-dom'
 
-const ShiftDetail = ({match}) => {
+const ShiftDetail = ({match, shiftState, setShiftState}) => {
 
-    const [shiftState, setShiftState] = useState({})
     const [locationState, setLocationState] = useState({})
 
     useEffect(() => {
         axios.get(`http://localhost:8000/shifts/${match.params.id}`)
           .then(res => {
             setShiftState(res.data[0])
-            console.log(res.data[0])
+            console.log(res.data)
             setLocationState({
                 lat: parseFloat(res.data[0].lat),
                 lng: parseFloat(res.data[0].lng)
@@ -20,15 +20,13 @@ const ShiftDetail = ({match}) => {
           })
     }, [])
 
-    console.log(shiftState)
-    console.log(locationState)
-
     return (
         <div>
            {shiftState.company ?  
            <div>
                 <p>{shiftState.company__name} | {shiftState.title}</p>
-                <button>Edit</button>
+                <Link to={`/shifts/${shiftState.id}/edit`} style={{textDecoration: 'none', color: 'black'}} class='button' >Edit</Link>
+                <Link to={`/shifts/${shiftState.id}/add`} style={{textDecoration: 'none', color: 'black'}} class='button' >Assign Worker</Link>
                 <div className="shiftContainer">
                     <div class='times '>
                         <p>Date & Time</p>
@@ -44,6 +42,7 @@ const ShiftDetail = ({match}) => {
                         <p>Uniform: {shiftState.uniform}</p>
                         <p>Meeting Location: {shiftState.meeting_location}</p>
                         <p>On-site Contact: {shiftState.on_site_contact}</p>
+                        <p> {shiftState.staff_claimed__first_name} </p>
                     </div>
                 </div>
                 <hr/>

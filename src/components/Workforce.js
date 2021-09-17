@@ -17,7 +17,7 @@ const Workforce = () => {
     return (
         <div>
             <h1>Workforce</h1>
-            <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/workforce/new'}>Add New Member</Link>
+            <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/workforce/new'}>Add New Worker</Link>
             <div>
             {listState.map(item => {
                 return(

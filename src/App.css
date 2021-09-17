@@ -1,5 +1,6 @@
 body{
   background-color: rgba(236, 241, 241, 0.815);
+  font-family: 'Roboto', sans-serif;
 }
 
 .App {
@@ -28,21 +29,9 @@ body{
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 nav {
   margin: 25px 0;
+  margin-top: 0;
   display: flex;
   justify-content: space-evenly;
   padding: 0;
@@ -134,8 +123,38 @@ nav {
   background: rgba(140, 203, 211, 0.815);
 }
 
-
 .companyReq {
+  border-bottom: 4px rgba(140, 203, 211, 0.815) solid;
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0.048);
+  padding: 10px;
+  transition: all .3s ease;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.companyReq:hover{
+  border-bottom: 8px rgba(140, 203, 211, 0.815) solid;
+}
+
+.companyReq:hover:after{
+  height: 15%;
+}
+
+.companyReq:after{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all .3s ease;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background: rgba(140, 203, 211, 0.815);
+}
+
+/* .companyReq {
   border: 1px solid black;
   margin: 10px 10%;
   background-color: white;
@@ -144,7 +163,7 @@ nav {
 
 .companyReq:hover{
   background-color: whitesmoke;
-}
+} */
 
 .map {
   width: 50%; 
@@ -225,4 +244,53 @@ nav {
   font-weight:lighter;
   font-size: 16px;
   margin-right: 10%;
+}
+
+.updateContainer {
+  display: flex;
+}
+
+.dropInfo {
+  font-size: 15px;
+  color: rgb(29, 28, 28);
+}
+
+.form {
+  border: black solid 1px;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.048) ;
+}
+
+.form input[type=text] {
+  width: 85%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.form input[type=number]{
+  padding: 12px 0;
+  margin: 8px 0;
+}
+
+.form input[type=datetime-local]{
+  margin: 8px 0;
+}
+
+.form input:focus {
+  border: 3px solid #555;
+}
+
+.form textarea {
+  resize: none;
+}
+
+.update {
+  background-color: rgba(62, 139, 68, 0.466);
+  padding: 10px;
+}
+
+.update:hover {
+  background-color: rgba(62, 139, 68, 0.801);
+  color: white;
 }

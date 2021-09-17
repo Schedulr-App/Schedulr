@@ -19,6 +19,9 @@ import PositionForm from './components/PositionForm';
 import PositionDetail from './components/PositionDetail';
 import EditPosition from './components/EditPosition';
 import Workforce from './components/Workforce';
+import ShiftEdit from './components/ShiftEdit';
+import WorkerAdd from './components/Shift/Update/WorkerAdd';
+import WorkerCreate from './components/Workforce/WorkerCreate';
 
 require('dotenv').config();
 
@@ -57,6 +60,8 @@ function App() {
 
   const [positionState, setPositionState] = useState({})
 
+  const [shiftState, setShiftState] = useState({})
+
   return (
     <div className="App">
       <Nav />
@@ -79,27 +84,34 @@ function App() {
         />
 
         {/* Routing for company detail */}
-        <Route exact path = '/companies/:id'
+        <Route exact path = '/company/:id'
             render = {routerProps => (<CompanyDetail match={routerProps.match} companyState={companyState} key={companyState.id} setCompanyState={setCompanyState}/>)}
         />
 
+        {/* Routing for shift list */}
+        <Route exact path = '/shifts'
+            render = {() => <Shifts key={shiftState.id}/>}
+        />
 
         {/* Routing for new company */}
         <Route exact path = '/shifts/new'
             render = {() => <CompanySelect handlecreate={handleCreate}/>}
         />
 
-        {/* Routing for shift list */}
-        <Route exact path = '/shifts'
-            render = {() => <Shifts />}
+         {/* Routing for shift edit */}
+         <Route exact path = '/shifts/:id/edit'
+            render = {() => <ShiftEdit shiftState={shiftState} setShiftState={setShiftState}/>}
         />
 
+         {/* Routing for shift edit */}
+         <Route exact path = '/shifts/:id/add'
+            render = {routerProps => ( <WorkerAdd match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState}/>)}
+        />
 
         {/* Routing for shift detail */}
-        <Route exact path = '/shifts/:id'
-            render = {routerProps => (<ShiftDetail match={routerProps.match} />)}
+        <Route exact path = '/shift/:id'
+            render = {routerProps => (<ShiftDetail match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState} key={shiftState.id}/>)}
         />
-
         
          {/* Routing for new position */}
          <Route exact path = '/positions/new'
@@ -112,7 +124,7 @@ function App() {
        />
 
         {/* Routing for new company */}
-        <Route exact path = '/positions/:id'
+        <Route exact path = '/position/:id'
             render = {routerProps => (<PositionDetail handleUpdate={handleUpdate} setPositionState={setPositionState} positionState={positionState} key={positionState.id} match={routerProps.match}/>)}
         />
 
@@ -124,6 +136,11 @@ function App() {
          {/* Routing for companies list */}
          <Route exact path = '/workforce'
             render = {() => <Workforce />}
+        />
+
+        {/* Routing for new worker */}
+        <Route exact path = '/workforce/new'
+            render = {() => <WorkerCreate handleCreate={handleCreate}/>}
         />
 
       </main>
