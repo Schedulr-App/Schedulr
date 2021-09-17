@@ -35,7 +35,7 @@ const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormS
                 <label htmlFor="start_time">Start Time: </label>
                 <input type='datetime-local' id='start_time' onChange={handleChange}/>
                 <label htmlFor="end_time">End Time: </label>
-                <input type='datetime-local' id='endtime' onChange={handleChange}/>
+                <input type='datetime-local' id='end_time' onChange={handleChange}/>
                 <br/>
                 <label htmlFor="name">Description: </label>
                 <textarea type="text" id = 'description' onChange={handleChange} rows='4' cols='50' placeholder='Detail the requirements of the shift' />

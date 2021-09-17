@@ -226,3 +226,7 @@ nav {
   font-size: 16px;
   margin-right: 10%;
 }
+
+.updateContainer {
+  display: flex;
+}
