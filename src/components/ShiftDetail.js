@@ -2,10 +2,10 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import Map from './Map'
+import { Link } from 'react-router-dom'
 
-const ShiftDetail = ({match}) => {
+const ShiftDetail = ({match, shiftState, setShiftState}) => {
 
-    const [shiftState, setShiftState] = useState({})
     const [locationState, setLocationState] = useState({})
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const ShiftDetail = ({match}) => {
            {shiftState.company ?  
            <div>
                 <p>{shiftState.company__name} | {shiftState.title}</p>
-                <button>Edit</button>
+                <Link to={`/shifts/${shiftState.id}/edit`} style={{textDecoration: 'none', color: 'black'}} class='button' >Edit</Link>
                 <div className="shiftContainer">
                     <div class='times '>
                         <p>Date & Time</p>
@@ -49,7 +49,7 @@ const ShiftDetail = ({match}) => {
                 <hr/>
                 <p>Shift Location</p>
                 <div class='mapBorder'>
-                    <Map location={locationState} />
+                    {/* <Map location={locationState} /> */}
                 </div>
             </div>
             :

@@ -7,7 +7,7 @@ const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShift
         event.preventDefault();
         console.log(formState)
         setShiftState(formState)
-        axios.post(`http://localhost:8000/shifts/`, shiftState)
+        axios.post(`http://localhost:8000/shifts/new`, shiftState)
             .then(res => console.log(res))
     }
 

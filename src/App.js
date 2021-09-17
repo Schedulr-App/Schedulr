@@ -19,6 +19,7 @@ import PositionForm from './components/PositionForm';
 import PositionDetail from './components/PositionDetail';
 import EditPosition from './components/EditPosition';
 import Workforce from './components/Workforce';
+import ShiftEdit from './components/ShiftEdit';
 
 require('dotenv').config();
 
@@ -57,6 +58,8 @@ function App() {
 
   const [positionState, setPositionState] = useState({})
 
+  const [shiftState, setShiftState] = useState({})
+
   return (
     <div className="App">
       <Nav />
@@ -94,10 +97,15 @@ function App() {
             render = {() => <Shifts />}
         />
 
+         {/* Routing for shift edit */}
+         <Route exact path = '/shifts/:id/edit'
+            render = {() => <ShiftEdit shiftState={shiftState} setShiftState={setShiftState}/>}
+        />
+
 
         {/* Routing for shift detail */}
         <Route exact path = '/shifts/:id'
-            render = {routerProps => (<ShiftDetail match={routerProps.match} />)}
+            render = {routerProps => (<ShiftDetail match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState}/>)}
         />
 
         
