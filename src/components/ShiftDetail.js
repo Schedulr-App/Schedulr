@@ -48,7 +48,7 @@ const ShiftDetail = ({match, shiftState, setShiftState}) => {
                 <hr/>
                 <p>Shift Location</p>
                 <div class='mapBorder'>
-                    {/* <Map location={locationState} /> */}
+                    <Map location={locationState} />
                 </div>
             </div>
             :
