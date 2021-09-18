@@ -32,9 +32,7 @@ const AddressForm = ({formState, setFormState, shiftState, setShiftState, handle
 
     function handleChange(event) {
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
-    console.log(formState)
     return (
         <div>
             <hr/>

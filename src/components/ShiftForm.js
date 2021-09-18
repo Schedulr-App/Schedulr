@@ -8,13 +8,11 @@ const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormS
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         setShiftState(formState)
     }
 
     function handleChange(event){
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
 
     return (

@@ -14,8 +14,6 @@ const mapContainerStyle = {
 
 const Map = ({location}) => {
 
-    console.log(location)
-
     const {isLoaded, loadError} = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_API_KEY
     })

@@ -10,18 +10,13 @@ const Shifts = ({shiftState, URL}) => {
     useEffect(() => {
         axios.get(`${URL}/shifts`)
           .then(res => {
-              console.log(res)
               const array = []
               for (const [key, value] of Object.entries(res.data)){
                   array.push(value)
               }
-            //   console.log(array)
-            //   console.log(res_array)
             setListState(array)
           })
     }, [])
-
-    console.log(listState)
 
     return (
         <div>

@@ -17,8 +17,6 @@ const Companies = ({URL}) => {
           })
     }, [])
 
-    console.log(listState)
-
     return (
         <div>
             <div className="headContainer">

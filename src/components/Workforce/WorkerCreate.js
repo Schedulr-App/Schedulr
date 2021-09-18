@@ -8,7 +8,6 @@ const WorkerCreate = ({history, URL}) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         axios.post(`${URL}/workforce/new`, formState)
             .then(res => console.log(res))
         history.push('/workforce')
@@ -16,7 +15,6 @@ const WorkerCreate = ({history, URL}) => {
 
     function handleChange(event){
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
 
     return (

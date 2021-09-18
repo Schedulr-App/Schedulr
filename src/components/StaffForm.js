@@ -5,7 +5,6 @@ const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShift
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         setShiftState(formState)
         axios.post(`${URL}/shifts/new`, shiftState)
             .then(res => {
@@ -16,7 +15,6 @@ const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShift
 
     function handleChange(event){
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
 
     return (

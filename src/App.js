@@ -33,22 +33,18 @@ function App() {
   const URL = 'https://schedulrapi.herokuapp.com'
  
   function handleRequest(address){
-  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)
-    .then(res => console.log(res.data.results[0].geometry.location))
-  }
+  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)}
 
   function handleCreate(data, slug){
     const payload = data
     console.log(payload)
     axios.post(`${URL}/${slug}/`, payload)
-      .then(res => console.log(res))
   }
 
   function handleUpdate(data, slug, id){
     const payload = data
     console.log(payload)
     axios.put(`${URL}/${slug}/${id}`, payload)
-      .then(res => console.log(res))
   }
 
   const [companyState, setCompanyState] = useState({})

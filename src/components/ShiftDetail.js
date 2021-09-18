@@ -16,7 +16,6 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                 array.push(value)
             }
             setShiftState(array[0])
-            console.log(res.data)
             setLocationState({
                 lat: parseFloat(array[0].lat),
                 lng: parseFloat(array[0].lng)

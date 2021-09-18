@@ -8,7 +8,6 @@ const WorkerDetail = ({workerState, setWorkerState, match, URL}) => {
         axios.get(`${URL}/workforce/${match.params.id}`)
           .then(res => {
             setWorkerState(res.data[0])
-            console.log(res.data[0])
           })
     }, [])
 

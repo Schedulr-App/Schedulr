@@ -7,7 +7,6 @@ const EditPosition = ({handleUpdate, positionState, history}) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         handleUpdate(formState, 'positions', positionState.id)
         history.push(`/position/${positionState.id}`)
     }

@@ -20,7 +20,6 @@ const ShiftEdit = ({shiftState, setShiftState, history, URL}) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         setShiftState(formState)
         axios.put(`${URL}/shifts/update`, shiftState)
             .then(res => tempAlert(res.data, 1000))

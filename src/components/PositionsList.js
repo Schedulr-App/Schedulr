@@ -16,8 +16,12 @@ const PositionsList = ({URL}) => {
 
     return (
         <div>
-            <h1>Position List</h1>
+            <div className="headContainer">
+                <h1 class='col'>Position List</h1>
+                <p className="col bold">{listState.length} Total Positions</p>
+            </div>
             <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/positions/new'}>Add New Position</Link>
+            <hr/>
             <div className="positionContainer">
             {listState.map(item => {
                 return(
