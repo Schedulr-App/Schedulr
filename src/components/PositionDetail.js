@@ -15,8 +15,11 @@ const PositionDetail = ({match, positionState, setPositionState}) => {
     return (
         <div>
             <h1>{positionState.name}</h1>
-            <p>{positionState.description}</p>
-            <Link to={`/positions/${positionState.id}/edit`} style={{textDecoration: 'none', color: 'black'}} class='button' >Edit</Link>
+            <div className="companyInfo">
+                <p>{positionState.description}</p>
+            </div>
+            <Link to={`/positions/${positionState.id}/edit`} style={{textDecoration: 'none', color: 'black'}} 
+            class='button' >Edit</Link>
         </div>
     )
 }

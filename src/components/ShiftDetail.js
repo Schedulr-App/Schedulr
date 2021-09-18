@@ -6,16 +6,20 @@ import { Link } from 'react-router-dom'
 
 const ShiftDetail = ({match, shiftState, setShiftState}) => {
 
-    const [locationState, setLocationState] = useState({})
+    const [locationState, setLocationState] = useState()
 
     useEffect(() => {
         axios.get(`http://localhost:8000/shifts/${match.params.id}`)
           .then(res => {
-            setShiftState(res.data[0])
+            const array = []
+            for (const [key, value] of Object.entries(res.data)){
+                array.push(value)
+            }
+            setShiftState(array[0])
             console.log(res.data)
             setLocationState({
-                lat: parseFloat(res.data[0].lat),
-                lng: parseFloat(res.data[0].lng)
+                lat: parseFloat(array[0].lat),
+                lng: parseFloat(array[0].lng)
             })
           })
     }, [])
@@ -29,24 +33,26 @@ const ShiftDetail = ({match, shiftState, setShiftState}) => {
                 <Link to={`/shifts/${shiftState.id}/add`} style={{textDecoration: 'none', color: 'black'}} class='button' >Assign Worker</Link>
                 <div className="shiftContainer">
                     <div class='times '>
-                        <p>Date & Time</p>
+                        <p class ='bold'>Date & Time</p>
                         <hr/>
                         <p>{shiftState.start_time.split('T', 1)}</p>
-                        <p>Start: {shiftState.start_time.split('T')[1].split('Z')}</p>
-                        <p>End: {shiftState.end_time.split('T')[1].split('Z')}</p>
+                        <p><span class='bold'>Start:</span> {shiftState.start_time.split('T')[1].split('Z')}</p>
+                        <p><span class='bold'>End:</span> {shiftState.end_time.split('T')[1].split('Z')}</p>
                     </div>
                     <div class = 'shiftDetails '>
                         <p>Details</p>
                         <hr/>
-                        <p>Description: {shiftState.description}</p>
-                        <p>Uniform: {shiftState.uniform}</p>
-                        <p>Meeting Location: {shiftState.meeting_location}</p>
-                        <p>On-site Contact: {shiftState.on_site_contact}</p>
-                        <p> {shiftState.staff_claimed__first_name} </p>
+                        <p><span class='bold'>Description:</span> {shiftState.description}</p>
+                        <p><span class='bold'>Uniform:</span> {shiftState.uniform}</p>
+                        <p><span class='bold'>Meeting Location:</span> {shiftState.meeting_location}</p>
+                        <p><span class='bold'>Onsite Contact:</span> {shiftState.on_site_contact}</p>
+                        <p> <span class='bold'>Current Fill Rate:</span> {shiftState.staff_count} / {shiftState.staff_needed} </p>
+                        <p> <span class='bold'>Pay / Bill:</span> ${shiftState.payrate} / ${shiftState.billrate} </p>
                     </div>
                 </div>
                 <hr/>
-                <p>Shift Location</p>
+                <p class='bold'>Shift Location</p>
+                <p class='minor'>{shiftState.street} {shiftState.city}, {shiftState.state} {shiftState.zip}</p>
                 <div class='mapBorder'>
                     <Map location={locationState} />
                 </div>

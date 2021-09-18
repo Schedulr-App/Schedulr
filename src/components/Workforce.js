@@ -16,12 +16,15 @@ const Workforce = () => {
 
     return (
         <div>
-            <h1>Workforce</h1>
-            <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/workforce/new'}>Add New Worker</Link>
+            <div className="headContainer">
+                <h1 class='col'>Workforce</h1>
+                <p class="col bold">{listState.length} Total Workers</p>
+            </div>
+            <hr/>
             <div>
             {listState.map(item => {
                 return(
-                    <Link to={`/workforce/${item.id}`} style={{textDecoration: 'none', color: 'black'}}>
+                    <Link to={`/workforce/${item.id}/detail`} style={{textDecoration: 'none', color: 'black'}}>
                         <div class='shiftReq'>
                             <p>Name: {item.first_name} {item.last_name} </p>
                             <p>Email: {item.email}</p>

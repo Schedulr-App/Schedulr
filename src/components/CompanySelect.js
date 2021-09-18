@@ -34,7 +34,7 @@ const CompanySelect = ({handleCreate}) => {
     }
 
     return (
-        <div>
+        <div class='form'>
             <h1>Create a new shift</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="company">Select the company: </label>

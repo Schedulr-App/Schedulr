@@ -1,7 +1,7 @@
 import './App.css';
 import axios from 'axios';
 import {useState} from 'react';
-import {Route} from 'react-router-dom'
+import {Route, useHistory} from 'react-router-dom'
 import Nav from './components/Nav';
 import Companies from './components/Companies';
 import CompanyDetail from './components/CompanyDetail';
@@ -22,11 +22,13 @@ import Workforce from './components/Workforce';
 import ShiftEdit from './components/ShiftEdit';
 import WorkerAdd from './components/Shift/Update/WorkerAdd';
 import WorkerCreate from './components/Workforce/WorkerCreate';
+import WorkerDetail from './components/Workforce/WorkerDetail';
 
 require('dotenv').config();
 
 function App() {
   
+  let history = useHistory()
  
   function handleRequest(address){
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)
@@ -47,20 +49,13 @@ function App() {
       .then(res => console.log(res))
   }
 
-  // handleRequest()
-
-  const [addressState, setAddressState] = useState({
-    street: '',
-    city: '', 
-    state: '',
-    zip: ''
-  })
-
   const [companyState, setCompanyState] = useState({})
 
   const [positionState, setPositionState] = useState({})
 
-  const [shiftState, setShiftState] = useState({})
+  const [shiftState, setShiftState] = useState([])
+
+  const [workerState, setWorkerState] = useState({})
 
   return (
     <div className="App">
@@ -75,12 +70,12 @@ function App() {
         
          {/* Routing for new company */}
          <Route exact path = '/companies/new'
-            render = {() => <CompanyForm handleCreate={handleCreate}/>}
+            render = {() => <CompanyForm handleCreate={handleCreate} history={history}/>}
         />
 
         {/* Routing for company edit*/}
         <Route exact path = '/companies/:id/edit'
-            render = {() => <EditCompany handleUpdate={handleUpdate} companyState={companyState} key={companyState.id}/>}
+            render = {() => <EditCompany handleUpdate={handleUpdate} companyState={companyState} key={companyState.id} history={history}/>}
         />
 
         {/* Routing for company detail */}
@@ -90,22 +85,22 @@ function App() {
 
         {/* Routing for shift list */}
         <Route exact path = '/shifts'
-            render = {() => <Shifts key={shiftState.id}/>}
+            render = {() => <Shifts shiftState={shiftState}/>}
         />
 
         {/* Routing for new company */}
         <Route exact path = '/shifts/new'
-            render = {() => <CompanySelect handlecreate={handleCreate}/>}
+            render = {() => <CompanySelect handlecreate={handleCreate} history={history}/>}
         />
 
          {/* Routing for shift edit */}
          <Route exact path = '/shifts/:id/edit'
-            render = {() => <ShiftEdit shiftState={shiftState} setShiftState={setShiftState}/>}
+            render = {() => <ShiftEdit shiftState={shiftState} setShiftState={setShiftState} history={history}/>}
         />
 
          {/* Routing for shift edit */}
          <Route exact path = '/shifts/:id/add'
-            render = {routerProps => ( <WorkerAdd match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState}/>)}
+            render = {routerProps => ( <WorkerAdd match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState} history={history}/>) }
         />
 
         {/* Routing for shift detail */}
@@ -115,12 +110,12 @@ function App() {
         
          {/* Routing for new position */}
          <Route exact path = '/positions/new'
-            render = {() => <PositionForm handleCreate={handleCreate}/>}
+            render = {() => <PositionForm handleCreate={handleCreate} history={history}/>}
         />
 
         {/* Routing for company edit*/}
         <Route exact path = '/positions/:id/edit'
-           render = {() => <EditPosition handleUpdate={handleUpdate} positionState={positionState} key={positionState.id}/>}
+           render = {() => <EditPosition handleUpdate={handleUpdate} positionState={positionState} key={positionState.id} history={history}/>}
        />
 
         {/* Routing for new company */}
@@ -140,7 +135,12 @@ function App() {
 
         {/* Routing for new worker */}
         <Route exact path = '/workforce/new'
-            render = {() => <WorkerCreate handleCreate={handleCreate}/>}
+            render = {() => <WorkerCreate handleCreate={handleCreate} history={history}/>}
+        />
+
+          {/* Routing for worker detail */}
+          <Route exact path = '/workforce/:id/detail'
+            render = {routerProps => (<WorkerDetail match={routerProps.match} workerState={workerState} setWorkerState={setWorkerState}/>)}
         />
 
       </main>
