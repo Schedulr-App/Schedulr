@@ -342,3 +342,12 @@ nav {
   z-index: 2;
   position: absolute;
 }
+
+@media (max-width: 400px) {
+  .shiftContainer {
+    display: block;
+  }
+  .companyInfo {
+    display: block;
+  }
+}
