@@ -21,19 +21,21 @@ const Companies = () => {
 
     return (
         <div>
-        <h1>Company List</h1>
-        <hr/>
-        <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/companies/new'}>Add Company</Link>
-           {listState.map(item => {
-               return(
-                <Link to={`/company/${item.id}`} style={{textDecoration: 'none', color: 'black'}} >
-                   <div class='companyReq'> 
-                       <p>{item.name}</p>
-                       <p class='dropInfo'>{item.contact_name} | {item.contact_phone} | {item.contact_email}</p>
-                   </div>
-                   </Link>
-               )
-           })}
+            <div className="headContainer">
+                <h1 class='col'>Company List</h1>
+                <p class="col bold">{listState.length} Total Companies</p>
+            </div>
+            <hr/>
+            {listState.map(item => {
+                return(
+                    <Link to={`/company/${item.id}`} style={{textDecoration: 'none', color: 'black'}} >
+                    <div class='companyReq'> 
+                        <p>{item.name}</p>
+                        <p class='dropInfo'>{item.contact_name} | {item.contact_phone} | {item.contact_email}</p>
+                    </div>
+                    </Link>
+                )
+            })}
         </div>
     )
 }

@@ -4,16 +4,27 @@ import EditAddress from './Shift/Update/EditAddress'
 import EditDetails from './Shift/Update/EditDetails'
 import axios from 'axios'
 
-const ShiftEdit = ({shiftState, setShiftState}) => {
+const ShiftEdit = ({shiftState, setShiftState, history}) => {
 
     const [formState, setFormState] = useState(shiftState)
+
+    function tempAlert(msg,duration){
+            var el = document.createElement("div");
+            el.classList.add('alert');
+            el.innerHTML = msg;
+            setTimeout(function(){
+            el.parentNode.removeChild(el);
+            },duration);
+            document.body.appendChild(el);
+        }
 
     function handleSubmit(event){
         event.preventDefault();
         console.log(formState)
         setShiftState(formState)
         axios.put(`http://localhost:8000/shifts/update`, shiftState)
-            .then(res => console.log(res))
+            .then(res => tempAlert(res.data, 1000))
+        history.push(`/shift/${shiftState.id}`)
     }
 
     return (
@@ -26,7 +37,7 @@ const ShiftEdit = ({shiftState, setShiftState}) => {
                     <EditAddress shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState}/>
                 </div>
             </div>
-            <button onClick={handleSubmit}class='button update'>Update Shift</button>
+            <button onClick={handleSubmit}class='button update padding'>Update Shift</button>
         </div>
     )
 }

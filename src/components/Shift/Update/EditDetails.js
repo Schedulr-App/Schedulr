@@ -16,6 +16,7 @@ const EditDetails = ({shiftState, setShiftState, formState, setFormState}) => {
 
     return (
         <div>
+            <h2>Shift Details</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Shift Title: </label>
                 <br/>

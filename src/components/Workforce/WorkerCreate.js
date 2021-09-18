@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
-const WorkerCreate = () => {
+const WorkerCreate = ({history}) => {
 
     const [formState, setFormState] = useState({})
 
@@ -10,7 +10,8 @@ const WorkerCreate = () => {
         event.preventDefault();
         console.log(formState)
         axios.post('http://localhost:8000/workforce/new', formState)
-        .then(res => console.log(res))
+            .then(res => console.log(res))
+        history.push('/workforce')
     }
 
     function handleChange(event){
@@ -20,8 +21,8 @@ const WorkerCreate = () => {
 
     return (
         <div>
-            <h1>Create New Worker</h1>
             <div class='form padding'>
+                <h1>Add Worker</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="first_name">First Name: </label>
                     <br/>
@@ -43,7 +44,7 @@ const WorkerCreate = () => {
                     <br/>
                     <input type="text" id = 'password' onChange={handleChange} />
                     <br/>
-                    <button type='submit' class='button' >Add Worker</button>
+                    <button type='submit' class='button update' >Add Worker</button>
                 </form>
             </div>
         </div>

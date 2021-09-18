@@ -37,33 +37,42 @@ const AddressForm = ({formState, setFormState, shiftState, setShiftState, handle
     console.log(formState)
     return (
         <div>
+            <hr/>
+            <h1>Address</h1>
             <form onSubmit={handleSubmit}>
                 
             <label htmlFor="street">Street: </label>
+            <br/>
             <input
                 id="street"
                 type="text"
                 onChange={handleChange}
             />
+            <br/>
             <label htmlFor="city">City: </label>
+            <br/>
             <input
                 id="city"
                 type="text"
                 onChange={handleChange}
             />
+            <br/>
             <label htmlFor="state">State: </label>
+            <br/>
             <input
                 id="state"
                 type="text"
                 onChange={handleChange}
             />
+            <br/>
             <label htmlFor="zip">Zip Code: </label>
+            <br/>
             <input
                 id="zip"
                 type="text"
                 onChange={handleChange}
             />
-              
+            <br/>
               {shiftState.lat ? null : <button type='submit' class='button'>Next</button>}
             </form>
             {shiftState.lat ? <StaffForm shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate} /> : null}

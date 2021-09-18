@@ -35,30 +35,38 @@ const EditAddress = ({formState, setFormState, shiftState, setShiftState}) => {
     console.log(formState)
     return (
         <div>
+            <h2>Address Info</h2>
             <form onSubmit={handleSubmit}>
                 
                 <label htmlFor="street">Street: </label>
+                <br/>
                 <input
                     id="street"
                     type="text"
                     onChange={handleChange}
                     value={formState.street}
                 />
+                <br/>
                 <label htmlFor="city">City: </label>
+                <br/>
                 <input
                     id="city"
                     type="text"
                     onChange={handleChange}
                     value={formState.city}
                 />
+                <br/>
                 <label htmlFor="state">State: </label>
+                <br/>
                 <input
                     id="state"
                     type="text"
                     onChange={handleChange}
                     value={formState.state}
                 />
+                <br/>
                 <label htmlFor="zip">Zip Code: </label>
+                <br/>
                 <input
                     id="zip"
                     type="text"

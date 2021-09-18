@@ -18,9 +18,10 @@ const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShift
 
     return (
         <div>
+            <hr/>
+            <h1>Staff Needed</h1>
             <form onSubmit={handleSubmit}>
                 
-            <label htmlFor="street">Staff needed: </label>
             <input
                 id="staff_needed"
                 type="number"
@@ -28,7 +29,7 @@ const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShift
                 onChange={handleChange}
             />
             <br/>
-           <button type='submit' class='button'>Create Shift</button>
+           <button type='submit' class='button update'>Create Shift</button>
             </form>
         </div>
     )
