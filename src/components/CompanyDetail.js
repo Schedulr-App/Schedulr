@@ -3,12 +3,12 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const CompanyDetail = ({match, setCompanyState, companyState}) => {
+const CompanyDetail = ({match, setCompanyState, companyState, URL}) => {
 
     
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/companies/${match.params.id}`)
+        axios.get(`${URL}/companies/${match.params.id}`)
           .then(res => {
             setCompanyState(res.data)
           })

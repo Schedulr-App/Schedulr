@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react'
 import Map from './Map'
 import { Link } from 'react-router-dom'
 
-const ShiftDetail = ({match, shiftState, setShiftState}) => {
+const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
 
     const [locationState, setLocationState] = useState()
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/shifts/${match.params.id}`)
+        axios.get(`${URL}/shifts/${match.params.id}`)
           .then(res => {
             const array = []
             for (const [key, value] of Object.entries(res.data)){

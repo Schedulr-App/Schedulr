@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const PositionsList = () => {
+const PositionsList = ({URL}) => {
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/positions`)
+        axios.get(`${URL}/positions`)
           .then(res => {
             setListState(res.data)
           })

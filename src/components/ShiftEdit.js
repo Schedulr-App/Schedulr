@@ -4,7 +4,7 @@ import EditAddress from './Shift/Update/EditAddress'
 import EditDetails from './Shift/Update/EditDetails'
 import axios from 'axios'
 
-const ShiftEdit = ({shiftState, setShiftState, history}) => {
+const ShiftEdit = ({shiftState, setShiftState, history, URL}) => {
 
     const [formState, setFormState] = useState(shiftState)
 
@@ -22,7 +22,7 @@ const ShiftEdit = ({shiftState, setShiftState, history}) => {
         event.preventDefault();
         console.log(formState)
         setShiftState(formState)
-        axios.put(`http://localhost:8000/shifts/update`, shiftState)
+        axios.put(`${URL}/shifts/update`, shiftState)
             .then(res => tempAlert(res.data, 1000))
         history.push(`/shift/${shiftState.id}`)
     }

@@ -1,14 +1,17 @@
 import React from 'react'
 import axios from 'axios';
 
-const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShiftState, handleCreate}) => {
+const StaffForm = ({handleRequest, formState, setFormState, shiftState, setShiftState, handleCreate, URL, history}) => {
 
     function handleSubmit(event){
         event.preventDefault();
         console.log(formState)
         setShiftState(formState)
-        axios.post(`http://localhost:8000/shifts/new`, shiftState)
-            .then(res => console.log(res))
+        axios.post(`${URL}/shifts/new`, shiftState)
+            .then(res => {
+                console.log(res)
+                history.push('/shifts')
+            })
     }
 
     function handleChange(event){

@@ -2,10 +2,10 @@ import React from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 
-const WorkerDetail = ({workerState, setWorkerState, match}) => {
+const WorkerDetail = ({workerState, setWorkerState, match, URL}) => {
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/workforce/${match.params.id}`)
+        axios.get(`${URL}/workforce/${match.params.id}`)
           .then(res => {
             setWorkerState(res.data[0])
             console.log(res.data[0])

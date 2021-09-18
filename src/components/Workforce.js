@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const Workforce = () => {
+const Workforce = ({URL}) => {
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/workforce`)
+        axios.get(`${URL}/workforce`)
           .then(res => {
             setListState(res.data)
           })

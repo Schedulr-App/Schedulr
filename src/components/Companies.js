@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom'
 
 
 
-const Companies = () => {
+const Companies = ({URL}) => {
 
     const [listState, setListState] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/companies`)
+        axios.get(`${URL}/companies`)
           .then(res => {
             setListState(res.data)
           })

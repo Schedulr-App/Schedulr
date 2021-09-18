@@ -3,7 +3,7 @@ import { useState } from 'react'
 import axios from 'axios';
 import StaffForm from './StaffForm';
 
-const AddressForm = ({formState, setFormState, shiftState, setShiftState, handleCreate}) => {
+const AddressForm = ({formState, setFormState, shiftState, setShiftState, handleCreate, URL, history}) => {
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -75,7 +75,7 @@ const AddressForm = ({formState, setFormState, shiftState, setShiftState, handle
             <br/>
               {shiftState.lat ? null : <button type='submit' class='button'>Next</button>}
             </form>
-            {shiftState.lat ? <StaffForm shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate} /> : null}
+            {shiftState.lat ? <StaffForm URL={URL} shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate} history={history} /> : null}
         </div>
     )
 }
