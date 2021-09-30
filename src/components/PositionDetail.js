@@ -3,10 +3,10 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const PositionDetail = ({match, positionState, setPositionState}) => {
+const PositionDetail = ({match, positionState, setPositionState, URL}) => {
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/positions/${match.params.id}`)
+        axios.get(`${URL}/positions/${match.params.id}`)
           .then(res => {
             setPositionState(res.data)
           })

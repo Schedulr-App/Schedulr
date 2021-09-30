@@ -3,10 +3,10 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-const PositionsList = () => {
+const PositionsList = ({URL}) => {
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/positions`)
+        axios.get(`${URL}/positions`)
           .then(res => {
             setListState(res.data)
           })
@@ -16,8 +16,12 @@ const PositionsList = () => {
 
     return (
         <div>
-            <h1>Position List</h1>
+            <div className="headContainer">
+                <h1 class='col'>Position List</h1>
+                <p className="col bold">{listState.length} Total Positions</p>
+            </div>
             <Link class = 'button' style={{textDecoration: 'none', color: 'black'}} to={'/positions/new'}>Add New Position</Link>
+            <hr/>
             <div className="positionContainer">
             {listState.map(item => {
                 return(

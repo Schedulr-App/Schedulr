@@ -3,25 +3,20 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-const Shifts = ({shiftState}) => {
+const Shifts = ({shiftState, URL}) => {
 
     const [listState, setListState] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/shifts`)
+        axios.get(`${URL}/shifts`)
           .then(res => {
-              console.log(res)
               const array = []
               for (const [key, value] of Object.entries(res.data)){
                   array.push(value)
               }
-            //   console.log(array)
-            //   console.log(res_array)
             setListState(array)
           })
     }, [])
-
-    console.log(listState)
 
     return (
         <div>

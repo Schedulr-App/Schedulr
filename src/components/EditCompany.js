@@ -7,7 +7,6 @@ const EditCompany = ({handleUpdate, companyState, history}) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         handleUpdate(formState, 'companies', companyState.id)
         history.push(`/company/${companyState.id}`)
     }

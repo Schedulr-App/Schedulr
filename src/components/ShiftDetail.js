@@ -4,25 +4,26 @@ import { useState, useEffect } from 'react'
 import Map from './Map'
 import { Link } from 'react-router-dom'
 
-const ShiftDetail = ({match, shiftState, setShiftState}) => {
+const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
 
     const [locationState, setLocationState] = useState()
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/shifts/${match.params.id}`)
+        axios.get(`${URL}/shifts/${match.params.id}`)
           .then(res => {
             const array = []
             for (const [key, value] of Object.entries(res.data)){
                 array.push(value)
             }
             setShiftState(array[0])
-            console.log(res.data)
             setLocationState({
                 lat: parseFloat(array[0].lat),
                 lng: parseFloat(array[0].lng)
             })
           })
     }, [])
+
+    console.log(shiftState)
 
     return (
         <div>
@@ -40,7 +41,7 @@ const ShiftDetail = ({match, shiftState, setShiftState}) => {
                         <p><span class='bold'>End:</span> {shiftState.end_time.split('T')[1].split('Z')}</p>
                     </div>
                     <div class = 'shiftDetails '>
-                        <p>Details</p>
+                        <p class='bold'>Details</p>
                         <hr/>
                         <p><span class='bold'>Description:</span> {shiftState.description}</p>
                         <p><span class='bold'>Uniform:</span> {shiftState.uniform}</p>
@@ -49,12 +50,23 @@ const ShiftDetail = ({match, shiftState, setShiftState}) => {
                         <p> <span class='bold'>Current Fill Rate:</span> {shiftState.staff_count} / {shiftState.staff_needed} </p>
                         <p> <span class='bold'>Pay / Bill:</span> ${shiftState.payrate} / ${shiftState.billrate} </p>
                     </div>
+                    <div className="staffDetails">
+                    <p class='bold' >Assigned Staff</p>
+                    <hr/>
+                        {shiftState.staff_info.map(item => {
+                            return(
+                                <Link to={`/workforce/${item.id}/detail`}>
+                                    <p>{item.firstname} {item.lastname}</p>
+                                </Link>
+                            )
+                        })}
+                    </div>
                 </div>
                 <hr/>
                 <p class='bold'>Shift Location</p>
                 <p class='minor'>{shiftState.street} {shiftState.city}, {shiftState.state} {shiftState.zip}</p>
                 <div class='mapBorder'>
-                    <Map location={locationState} />
+                    {/* <Map location={locationState} /> */}
                 </div>
             </div>
             :

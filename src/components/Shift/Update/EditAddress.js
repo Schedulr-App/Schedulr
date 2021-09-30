@@ -30,9 +30,7 @@ const EditAddress = ({formState, setFormState, shiftState, setShiftState}) => {
 
     function handleChange(event) {
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
-    console.log(formState)
     return (
         <div>
             <h2>Address Info</h2>

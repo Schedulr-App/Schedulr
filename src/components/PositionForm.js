@@ -8,7 +8,6 @@ const PositionForm = ({handleCreate, history}) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         handleCreate(formState, 'positions')
         history.push('/positions')
     }

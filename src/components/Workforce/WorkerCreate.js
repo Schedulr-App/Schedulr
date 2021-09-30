@@ -2,21 +2,19 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
-const WorkerCreate = ({history}) => {
+const WorkerCreate = ({history, URL}) => {
 
     const [formState, setFormState] = useState({})
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
-        axios.post('http://localhost:8000/workforce/new', formState)
+        axios.post(`${URL}/workforce/new`, formState)
             .then(res => console.log(res))
         history.push('/workforce')
     }
 
     function handleChange(event){
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
 
     return (

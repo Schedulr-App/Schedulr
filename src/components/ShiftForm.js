@@ -3,18 +3,16 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import AddressForm from './AddressForm';
 
-const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormState, handleCreate}) => {
+const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormState, handleCreate, URL, history}) => {
 
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         setShiftState(formState)
     }
 
     function handleChange(event){
         setFormState({...formState, [event.target.id]: event.target.value})
-        console.log(formState)
     }
 
     return (
@@ -61,7 +59,7 @@ const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormS
                 <br/>
                 {shiftState.billrate ? null : <button type='submit' class='button'>Next</button>}
             </form>
-            {shiftState.billrate ? <AddressForm shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate}/> : null}
+            {shiftState.billrate ? <AddressForm URL={URL} shiftState={shiftState} setShiftState={setShiftState} formState={formState} setFormState={setFormState} handleCreate={handleCreate} history={history}/> : null}
         </div>
     )
 }

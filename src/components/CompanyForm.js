@@ -7,7 +7,6 @@ const CompanyForm = ({handleCreate, history}) => {
 
     function handleSubmit(event){
         event.preventDefault();
-        console.log(formState)
         handleCreate(formState, 'companies')
         history.push('/companies')
     }

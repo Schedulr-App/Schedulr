@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const WorkerAdd = ({match}) => {
+const WorkerAdd = ({match, URL, history}) => {
 
     const [workerList, setWorkerList]  = useState([])
 
@@ -11,14 +11,20 @@ const WorkerAdd = ({match}) => {
     })
 
     useEffect(() => {
-        axios.get('http://localhost:8000/workforce')
-            .then(res => setWorkerList(res.data))
+        axios.get(`${URL}/workforce`)
+            .then(res => {
+                setWorkerList(res.data)
+                
+            })
     }, [])
 
     function handleSubmit(event){
         event.preventDefault();
-        axios.put(`http://localhost:8000/shifts/assign`, formState)
-            .then(res => console.log(res))
+        axios.put(`${URL}/shifts/assign`, formState)
+            .then(res => {
+                console.log(res)
+                history.push(`/shift/${match.params.id}`)
+            })
     }
 
     function handleChange(event){
