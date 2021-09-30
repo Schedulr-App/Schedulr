@@ -23,6 +23,8 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
           })
     }, [])
 
+    console.log(shiftState)
+
     return (
         <div>
            {shiftState.company ?  
@@ -39,7 +41,7 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                         <p><span class='bold'>End:</span> {shiftState.end_time.split('T')[1].split('Z')}</p>
                     </div>
                     <div class = 'shiftDetails '>
-                        <p>Details</p>
+                        <p class='bold'>Details</p>
                         <hr/>
                         <p><span class='bold'>Description:</span> {shiftState.description}</p>
                         <p><span class='bold'>Uniform:</span> {shiftState.uniform}</p>
@@ -47,11 +49,17 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                         <p><span class='bold'>Onsite Contact:</span> {shiftState.on_site_contact}</p>
                         <p> <span class='bold'>Current Fill Rate:</span> {shiftState.staff_count} / {shiftState.staff_needed} </p>
                         <p> <span class='bold'>Pay / Bill:</span> ${shiftState.payrate} / ${shiftState.billrate} </p>
-                        {/* {shiftState.staff_count.map(item => {
+                    </div>
+                    <div className="staffDetails">
+                    <p class='bold' >Assigned Staff</p>
+                    <hr/>
+                        {shiftState.staff_info.map(item => {
                             return(
-                            <p>{item.first_name}</p>
+                                <Link to={`/workforce/${item.id}/detail`}>
+                                    <p>{item.firstname} {item.lastname}</p>
+                                </Link>
                             )
-                        })} */}
+                        })}
                     </div>
                 </div>
                 <hr/>
