@@ -23,8 +23,11 @@ const Reporting = ({URL}) => {
             <hr/>
             <div class="reportContainer">
                 <div class="reportRow">
-                    <p class="reportReq">Shift Detail Export</p>
-                    <button class ='button' onClick={pullReport}>Export</button>
+                    <div class="reportInfo">
+                        <p class="reportReq col bold">Shift Detail Export</p>
+                        <p class="dropInfo reportSummary">Report showing all information on shifts including company info, position info, and worker info. Report is itemized by claimed shift.</p>
+                        <button class ='button col export update' onClick={pullReport}>Export</button>
+                    </div>
                 </div>
             </div>
         </div>

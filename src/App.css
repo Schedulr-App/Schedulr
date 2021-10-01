@@ -35,6 +35,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   padding: 0;
+  padding-top: 5px;
   background-color: teal;
   overflow: hidden;
 }
@@ -66,7 +67,7 @@ nav {
 .navItem {
   text-decoration: none;
   color: white;
-  padding: 10px;
+  padding: 15px;
   font-size: 16px;
 }
 .navItem:hover {
@@ -366,4 +367,38 @@ nav {
   overflow: hidden;
   position: relative;
   display: block;
+}
+
+.reportInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reportReq {
+  max-width: 25vw;
+}
+
+.reportSummary {
+  max-width: 65vw;
+}
+
+.export {
+  max-width: 10vw;
+  margin: 0 5vw;
+}
+
+footer {
+  text-align: center;
+  color: rgb(65, 62, 62);
+  font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navLogo {
+
+  width: 40px;
 }
