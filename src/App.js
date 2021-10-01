@@ -23,6 +23,7 @@ import ShiftEdit from './components/ShiftEdit';
 import WorkerAdd from './components/Shift/Update/WorkerAdd';
 import WorkerCreate from './components/Workforce/WorkerCreate';
 import WorkerDetail from './components/Workforce/WorkerDetail';
+import Reporting from './components/Reporting';
 
 require('dotenv').config();
 
@@ -140,6 +141,12 @@ function App() {
           <Route exact path = '/workforce/:id/detail'
             render = {routerProps => (<WorkerDetail match={routerProps.match} workerState={workerState} setWorkerState={setWorkerState} URL={URL}/>)}
         />
+
+        {/* Routing for reports list */}
+        <Route exact path = '/reporting'
+            render = {() => <Reporting URL={URL}/>}
+        />
+
 
       </main>
     </div>
