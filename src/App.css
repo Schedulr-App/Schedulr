@@ -356,3 +356,14 @@ nav {
     display: block;
   }
 }
+
+.reportRow {
+  border-bottom: 4px rgba(140, 203, 211, 0.815) solid;
+  margin: 10px 0;
+  background-color: rgba(0, 0, 0, 0.11);
+  padding: 10px;
+  transition: all .3s ease;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
