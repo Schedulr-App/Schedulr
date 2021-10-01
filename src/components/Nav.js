@@ -5,6 +5,9 @@ const Nav = () => {
     return (
         <div>
             <nav class='sticky'>
+                <Link to={'/shifts'}>
+                    <img src="/calendar.png" alt="Calendar" className="navLogo" />
+                </Link>
                 <div class="dropdown">
                     <button class="navItem dropbtn">Shifts
                         {/* <i class="fa fa-caret-down"></i> */}
