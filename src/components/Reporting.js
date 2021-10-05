@@ -25,7 +25,7 @@ const Reporting = ({URL}) => {
                 <div class="reportRow">
                     <div class="reportInfo">
                         <p class="reportReq col bold">Shift Detail Export</p>
-                        <p class="dropInfo reportSummary">Report showing all information on shifts including company info, position info, and worker info. Report is itemized by claimed shift.</p>
+                        <p class="dropInfo reportSummary">Report showing all information on shifts including company info, position info, and worker info. Report is granular to shift level.</p>
                         <button class ='button col export update' onClick={pullReport}>Export</button>
                     </div>
                 </div>
