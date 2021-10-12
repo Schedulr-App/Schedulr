@@ -20,6 +20,7 @@ const ShiftForm = ({shiftState, setShiftState, positionList, formState, setFormS
             <form onSubmit={handleSubmit}>
             <label htmlFor="position">Select the position: </label>
                 <select name="position" id="position" onChange={handleChange}>
+                    <option value='starter'> - choose a position - </option>
                     {positionList.map(item => {
                         return (
                             <option value={item.name} id='position'>{item.name}</option>
