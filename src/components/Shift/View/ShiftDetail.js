@@ -31,7 +31,7 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
            <div>
                 <p>{shiftState.company__name} | {shiftState.title}</p>
                 <Link to={`/shifts/${shiftState.id}/edit`} style={{textDecoration: 'none', color: 'black'}} class='button' >Edit</Link>
-                <Link to={`/shifts/${shiftState.id}/add`} style={{textDecoration: 'none', color: 'black'}} class='button' >Assign Worker</Link>
+                <Link to={`/shifts/${shiftState.id}/manage`} style={{textDecoration: 'none', color: 'black'}} class='button' >Manage Staff</Link>
                 <div className="shiftContainer">
                     <div class='times '>
                         <p class ='bold'>Date & Time</p>

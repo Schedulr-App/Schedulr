@@ -1,6 +1,6 @@
 import './App.css';
 import axios from 'axios';
-import {useState} from 'react';
+import {Fragment, useState} from 'react';
 import {Route, useHistory} from 'react-router-dom'
 import Nav from './components/Nav';
 import Companies from './components/Companies/View/Companies';
@@ -22,6 +22,8 @@ import WorkerAdd from './components/Shift/Update/WorkerAdd';
 import WorkerCreate from './components/Workforce/Create/WorkerCreate';
 import WorkerDetail from './components/Workforce/View/WorkerDetail';
 import Reporting from './components/Reporting';
+import WorkerRemove from './components/Shift/Update/WorkerRemove';
+import ManageStaff from './components/Shift/Update/ManageStaff';
 
 require('dotenv').config();
 
@@ -96,8 +98,8 @@ function App() {
         />
 
          {/* Routing for shift edit */}
-         <Route exact path = '/shifts/:id/add'
-            render = {routerProps => ( <WorkerAdd match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState} history={history} URL={URL}/>) }
+         <Route exact path = '/shifts/:id/manage'
+            render = {routerProps => (<ManageStaff match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState} history={history} URL={URL}/>)}
         />
 
         {/* Routing for shift detail */}
