@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import ShiftForm from './ShiftForm'
-import ErrorHandle from './ErrorHandle'
+import ErrorHandle from '../../ErrorHandle'
 
 const CompanySelect = ({handleCreate, URL, history}) => {
 

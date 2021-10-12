@@ -50,18 +50,19 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                         <p> <span class='bold'>Current Fill Rate:</span> {shiftState.staff_count} / {shiftState.staff_needed} </p>
                         <p> <span class='bold'>Pay / Bill:</span> ${shiftState.payrate} / ${shiftState.billrate} </p>
                     </div>
-                    <div className="staffDetails">
-                    <p class='bold' >Assigned Staff</p>
-                    <hr/>
-                        {shiftState.staff_info.map(item => {
-                            return(
-                                <Link to={`/workforce/${item.id}/detail`}>
-                                    <p>{item.firstname} {item.lastname}</p>
-                                </Link>
-                            )
-                        })}
-                    </div>
                 </div>
+                    <div className="staffDetails">
+                        <p class='bold' >Assigned Staff</p>
+                        <p class ='minor'><span class='bold'>Current Fill Rate:</span> {shiftState.staff_count} / {shiftState.staff_needed} </p>
+                        <hr/>
+                            {shiftState.staff_info.map(item => {
+                                return(
+                                    <Link to={`/workforce/${item.id}/detail`}>
+                                        <p>{item.firstname} {item.lastname}</p>
+                                    </Link>
+                                )
+                            })}
+                    </div>
                 <hr/>
                 <p class='bold'>Shift Location</p>
                 <p class='minor'>{shiftState.street} {shiftState.city}, {shiftState.state} {shiftState.zip}</p>
