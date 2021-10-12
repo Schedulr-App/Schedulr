@@ -36,7 +36,7 @@ nav {
   justify-content: space-evenly;
   padding: 0;
   padding-top: 5px;
-  background-color: teal;
+  background-color: rgb(0, 95, 95);
   overflow: hidden;
 }
 
@@ -58,7 +58,7 @@ nav {
 .dropdown .dropbtn {
   border: none;
   color: white;
-  background-color: teal;
+  background-color: rgb(0, 95, 95);
   padding: 12px 16px;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
@@ -77,7 +77,7 @@ nav {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: teal;
+  background-color: rgb(0, 95, 95);
   /* min-width: 160px; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -211,6 +211,7 @@ nav {
   border: 1px solid black;
   padding: 5px;
   background-color: white;
+  margin: 5px;
 }
 
 .button:hover{
