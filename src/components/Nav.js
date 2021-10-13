@@ -5,6 +5,9 @@ const Nav = () => {
     return (
         <div>
             <nav class='sticky'>
+                <Link to={'/shifts'}>
+                    <img src="/calendar.png" alt="Calendar" className="navLogo" />
+                </Link>
                 <div class="dropdown">
                     <button class="navItem dropbtn">Shifts
                         {/* <i class="fa fa-caret-down"></i> */}
@@ -38,6 +41,7 @@ const Nav = () => {
                        <Link class = 'navDrop' to={'/workforce/new'}>Add Worker</Link>
                     </div>
                 </div>
+                <Link class='navItem' to={'/reporting'}>Reporting</Link>
                 {/* <Link class='navItem' >My Profile</Link> */}
             </nav>
         </div>

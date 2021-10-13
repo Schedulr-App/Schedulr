@@ -1,28 +1,29 @@
 import './App.css';
 import axios from 'axios';
-import {useState} from 'react';
+import {Fragment, useState} from 'react';
 import {Route, useHistory} from 'react-router-dom'
 import Nav from './components/Nav';
-import Companies from './components/Companies';
-import CompanyDetail from './components/CompanyDetail';
-import Map from './components/Map'
-import AddressForm from './components/AddressForm';
-import Shifts from './components/Shifts';
-import ShiftDetail from './components/ShiftDetail';
-import CompanyForm from './components/CompanyForm'
-import EditCompany from './components/EditCompany';
-import { Redirect } from 'react-router';
-import ShiftForm from './components/ShiftForm';
-import CompanySelect from './components/CompanySelect';
-import PositionsList from './components/PositionsList';
-import PositionForm from './components/PositionForm';
-import PositionDetail from './components/PositionDetail';
+import Companies from './components/Companies/View/Companies';
+import CompanyDetail from './components/Companies/View/CompanyDetail';
+import Map from './components/Shift/View/Map'
+import AddressForm from './components/Shift/Create/AddressForm';
+import Shifts from './components/Shift/View/Shifts';
+import ShiftDetail from './components/Shift/View/ShiftDetail';
+import CompanyForm from './components/Companies/Create/CompanyForm'
+import EditCompany from './components/Companies/Update/EditCompany';
+import CompanySelect from './components/Shift/Create/CompanySelect';
+import PositionsList from './components/Shift/Positions/PositionsList';
+import PositionForm from './components/Shift/Positions/PositionForm';
+import PositionDetail from './components/Shift/Positions/PositionDetail';
 import EditPosition from './components/EditPosition';
-import Workforce from './components/Workforce';
-import ShiftEdit from './components/ShiftEdit';
+import Workforce from './components/Workforce/View/Workforce';
+import ShiftEdit from './components/Shift/Update/ShiftEdit';
 import WorkerAdd from './components/Shift/Update/WorkerAdd';
-import WorkerCreate from './components/Workforce/WorkerCreate';
-import WorkerDetail from './components/Workforce/WorkerDetail';
+import WorkerCreate from './components/Workforce/Create/WorkerCreate';
+import WorkerDetail from './components/Workforce/View/WorkerDetail';
+import Reporting from './components/Reporting';
+import WorkerRemove from './components/Shift/Update/WorkerRemove';
+import ManageStaff from './components/Shift/Update/ManageStaff';
 
 require('dotenv').config();
 
@@ -30,7 +31,7 @@ function App() {
   
   let history = useHistory()
 
-  const URL = 'http://localhost:8000'
+  const URL = 'https://schedulrapi.herokuapp.com'
  
   function handleRequest(address){
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)}
@@ -97,8 +98,8 @@ function App() {
         />
 
          {/* Routing for shift edit */}
-         <Route exact path = '/shifts/:id/add'
-            render = {routerProps => ( <WorkerAdd match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState} history={history} URL={URL}/>) }
+         <Route exact path = '/shifts/:id/manage'
+            render = {routerProps => (<ManageStaff match={routerProps.match} shiftState={shiftState} setShiftState={setShiftState} history={history} URL={URL}/>)}
         />
 
         {/* Routing for shift detail */}
@@ -140,6 +141,12 @@ function App() {
           <Route exact path = '/workforce/:id/detail'
             render = {routerProps => (<WorkerDetail match={routerProps.match} workerState={workerState} setWorkerState={setWorkerState} URL={URL}/>)}
         />
+
+        {/* Routing for reports list */}
+        <Route exact path = '/reporting'
+            render = {() => <Reporting URL={URL}/>}
+        />
+
 
       </main>
     </div>

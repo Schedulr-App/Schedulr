@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import EditAddress from './Shift/Update/EditAddress'
-import EditDetails from './Shift/Update/EditDetails'
+import EditAddress from './EditAddress'
+import EditDetails from './EditDetails'
 import axios from 'axios'
 
 const ShiftEdit = ({shiftState, setShiftState, history, URL}) => {
