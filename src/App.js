@@ -31,7 +31,7 @@ function App() {
   
   let history = useHistory()
 
-  const URL = 'http://localhost:8000'
+  const URL = 'https://schedulrapi.herokuapp.com'
  
   function handleRequest(address){
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)}

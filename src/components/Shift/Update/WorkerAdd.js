@@ -14,7 +14,6 @@ const WorkerAdd = ({match, URL, history}) => {
         axios.get(`${URL}/workforce`)
             .then(res => {
                 setWorkerList(res.data)
-                
             })
     }, [])
 
@@ -34,7 +33,7 @@ const WorkerAdd = ({match, URL, history}) => {
 
     return (
         <div>
-            <h1>Assign Worker</h1>
+            <h2>Assign Worker</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="user">Select the staff member: </label>
                 <select name="user" id="user" onChange={handleChange}>
