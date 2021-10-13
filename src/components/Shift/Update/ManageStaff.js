@@ -6,8 +6,12 @@ const ManageStaff = ({match, URL, history, shiftState}) => {
     return (
         <div>
             <h1>Manage Staff</h1>
-            <WorkerAdd history={history} URL={URL} match={match}/>
-            <WorkerRemove history={history} URL={URL} match={match} shiftState={shiftState}/>
+            <div class='form'>
+                <WorkerAdd history={history} URL={URL} match={match}/>
+            </div>
+            <div class='form'>
+                <WorkerRemove history={history} URL={URL} match={match} shiftState={shiftState}/>
+            </div>
         </div>
     )
 }

@@ -27,7 +27,7 @@ const WorkerRemove = ({match, URL, history, shiftState}) => {
 
     return (
         <div>
-            <h1>Remove Worker</h1>
+            <h2>Remove Worker</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="user">Select the assigned staff: </label>
                 <select name="user" id="user" onChange={handleChange}>

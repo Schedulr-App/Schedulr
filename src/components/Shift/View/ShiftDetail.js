@@ -29,7 +29,7 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
         <div>
            {shiftState.company ?  
            <div>
-                <p>{shiftState.company__name} | {shiftState.title}</p>
+                <h1>{shiftState.company__name} | {shiftState.title}</h1>
                 <Link to={`/shifts/${shiftState.id}/edit`} style={{textDecoration: 'none', color: 'black'}} class='button' >Edit</Link>
                 <Link to={`/shifts/${shiftState.id}/manage`} style={{textDecoration: 'none', color: 'black'}} class='button' >Manage Staff</Link>
                 <div className="shiftContainer">
@@ -47,7 +47,6 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                         <p><span class='bold'>Uniform:</span> {shiftState.uniform}</p>
                         <p><span class='bold'>Meeting Location:</span> {shiftState.meeting_location}</p>
                         <p><span class='bold'>Onsite Contact:</span> {shiftState.on_site_contact}</p>
-                        <p> <span class='bold'>Current Fill Rate:</span> {shiftState.staff_count} / {shiftState.staff_needed} </p>
                         <p> <span class='bold'>Pay / Bill:</span> ${shiftState.payrate} / ${shiftState.billrate} </p>
                     </div>
                 </div>
@@ -67,7 +66,7 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                 <p class='bold'>Shift Location</p>
                 <p class='minor'>{shiftState.street} {shiftState.city}, {shiftState.state} {shiftState.zip}</p>
                 <div class='mapBorder'>
-                    {/* <Map location={locationState} /> */}
+                    <Map location={locationState} />
                 </div>
             </div>
             :
