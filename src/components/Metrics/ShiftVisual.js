@@ -20,22 +20,22 @@ const ShiftVisual = ({URL}) => {
     const seriesData= [
         {
             timeframe: 'Past 30 Days',
-            shifts: 10
+            shifts: shiftCount.monthCount
         },
         {
             timeframe: 'Past 14 Days',
-            shifts: 5
+            shifts: shiftCount.twoWeekCount
         },
         {
             timeframe: 'Past 7 Days',
-            shifts: shiftCount
+            shifts: shiftCount.weekCount
         },
         
     ]
 
     return (
         <div>
-            {shiftCount >  0 ?  
+            {shiftCount.monthCount >  0 ?  
            
             
             <Chart>
