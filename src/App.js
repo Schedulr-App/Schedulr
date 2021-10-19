@@ -24,8 +24,8 @@ import WorkerDetail from './components/Workforce/View/WorkerDetail';
 import Reporting from './components/Reporting';
 import WorkerRemove from './components/Shift/Update/WorkerRemove';
 import ManageStaff from './components/Shift/Update/ManageStaff';
-import ShiftVisual from './components/Metrics/ShiftVisual';
 import '@progress/kendo-theme-default/dist/all.css';
+import Dashboard from './components/Metrics/Dashboard';
 
 require('dotenv').config();
 
@@ -151,7 +151,7 @@ function App() {
 
         {/* Routing for dashboard */}
         <Route exact path = '/dashboard'
-            render = {() => <ShiftVisual URL={URL}/>}
+            render = {() => <Dashboard URL={URL}/>}
         />
 
       </main>
