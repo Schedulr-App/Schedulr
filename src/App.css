@@ -406,3 +406,12 @@ footer {
 
   width: 40px;
 }
+
+.chartContainer {
+  display: flex;
+  width: 0 auto;
+}
+
+.chart {
+  width: 0 auto;
+}
