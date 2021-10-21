@@ -40,7 +40,7 @@ const ShiftVisual = ({URL}) => {
             
             <Chart>
                 
-                <ChartArea background="#eee" width={500} />
+                <ChartArea background="#eee" width={500} margin={50} />
                 <ChartTitle text="Historical Shift Information" />
                 <ChartTooltip />
                 <ChartSeries>

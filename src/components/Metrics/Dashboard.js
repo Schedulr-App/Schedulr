@@ -16,6 +16,9 @@ const Dashboard = ({URL}) => {
                 <div class = 'col chart'>
                     <FillrateVisual URL = {URL}/>
                 </div>
+                <div class = 'col chart'>
+                    <ShiftVisual URL = {URL}/> 
+                </div>
             </div>
         </div>
     )

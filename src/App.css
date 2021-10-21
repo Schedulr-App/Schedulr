@@ -403,15 +403,14 @@ footer {
 }
 
 .navLogo {
-
   width: 40px;
 }
 
 .chartContainer {
   display: flex;
-  width: 0 auto;
+  max-width: 100vw;
 }
 
 .chart {
-  width: 0 auto;
+  max-width: 33vw;
 }

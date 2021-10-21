@@ -33,7 +33,7 @@ const FillrateVisual = ({URL}) => {
         <div>
             {shiftCount.total > 0 ?
               <Chart>
-                <ChartArea background="#eee" width={500} />
+                <ChartArea background="#eee" width={500} margin={50}/>
                 <ChartTitle text="Shift Fill Rate" />
                 <ChartTooltip />
                 <ChartLegend position="bottom" orientation="horizontal" />
