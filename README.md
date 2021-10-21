@@ -2,9 +2,13 @@
 
 ## About
 
-Schedulr is a web-based application that allows temporary staffing companies to post available shifts and track how many workers are currently scheduled for the shift. Schedulr gives admin the ability to fill all necesarry details about a shift such as the start/end times, description, uniform, etc. Schedulr's goal is to provide admins with an easier scheduling and tracking process. Schedulr utilizes Google API's to display shift locations.
+Schedulr is a web-based application that allows temporary staffing companies to post available shifts and track metrics accross shifts, clients, and their workforce. My goal is to provide staffing agencies with an easier scheduling and tracking process with metric tracking to empower agencies to better understand their market health.
 
-Next steps will be working on a worker portal and viewing/claiming shifts on their own.
+## Most Recent Developments
+ - Reporting Suite
+ - Metric Visualization Tools
+ - Enhanced Logic and QOL Improvements
+ - Improved Staff Management on Orders
 
 ## Future Development Goals
 
@@ -12,8 +16,7 @@ Next steps will be working on a worker portal and viewing/claiming shifts on the
  - User Authentication
  - Filtering
  - More Robust Metrics
- - Reporting
- 
+ - Further QOL Improvements
 
 ## Stack
 
@@ -23,6 +26,26 @@ Next steps will be working on a worker portal and viewing/claiming shifts on the
     - Django
  - Database
     - PostgreSQL
+
+## Libraries & API's
+- Kendo React Library
+   > Used for data visualization.
+   > [Install Guide](https://www.telerik.com/kendo-react-ui/getting-started/)
+- Hammer.js Library
+  > Used for enhanced gestures in Kendo React charts.
+  > [NPM Install](https://www.npmjs.com/package/hammerjs)
+- JS File Download Library
+  > Used for csv downloading of reports.
+  > [NPM Install](https://www.npmjs.com/package/js-file-download)
+- Axios
+  > Used for API calls.
+  > [NPM Install](https://www.npmjs.com/package/axios)
+- React Google Maps
+  > Enables binding for the Google Maps API into a component.
+  > [NPM Install](https://www.npmjs.com/package/@react-google-maps/api)
+- Google Maps API
+- Google Geocoding API 
+
 
 ## Wireframe
 ![Admin View](./public/Admin_View.png)
@@ -55,4 +78,4 @@ The Shift update form works well too. I made it to a user can enter in their cha
 ### What needs work?
 My list could go on and on about what needs work. Most of the time, these projects could never end in that there is always something to be worked on. 
 
-Outside of feature additions, there are a few hiccups along the way that could use improvement. While I am proud of my shift creation workflow, it is as responsive as it should be. Sometimes, you have to hit create twice for it to send to the back-end. I also need to figure out how to show a list of workers on the Shift Detail component who have claimed the shift, currently I only have a count of assigned workers. 
+Outside of feature additions, there are a few hiccups along the way that could use improvement. While I am proud of my shift creation workflow, it is as responsive as it should be. Sometimes, you have to hit create twice for it to send to the back-end.
