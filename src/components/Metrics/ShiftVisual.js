@@ -9,7 +9,7 @@ const ShiftVisual = ({URL}) => {
     const [shiftCount, setShiftCount] = useState(0)
 
     useEffect(() => {
-        axios.get(`${URL}/dashboard`)
+        axios.get(`${URL}/dashboard/shifts`)
             .then(res => {
                 setShiftCount(res.data)
                 console.log(res.data)
@@ -40,7 +40,7 @@ const ShiftVisual = ({URL}) => {
             
             <Chart>
                 
-                <ChartArea background="#eee" margin={30} width={500} />
+                <ChartArea background="#eee" width={500} margin={50} />
                 <ChartTitle text="Historical Shift Information" />
                 <ChartTooltip />
                 <ChartSeries>

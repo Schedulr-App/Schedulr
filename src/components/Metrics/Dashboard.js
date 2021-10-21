@@ -1,14 +1,25 @@
 import React from 'react'
+import FillrateVisual from './FillrateVisual'
 import ShiftVisual from './ShiftVisual'
 
 const Dashboard = ({URL}) => {
     return (
         <div>
              <div className="headContainer">
-                <h1 class='col'>Schedulr Dashboard</h1>
+                <h1 class='col'>Your Schedulr Dashboard</h1>
             </div>
             <hr/>
-            <ShiftVisual URL = {URL}/>
+            <div class='chartContainer'>
+                <div class = 'col chart'>
+                    <ShiftVisual URL = {URL}/> 
+                </div>
+                <div class = 'col chart'>
+                    <FillrateVisual URL = {URL}/>
+                </div>
+                <div class = 'col chart'>
+                    <ShiftVisual URL = {URL}/> 
+                </div>
+            </div>
         </div>
     )
 }
