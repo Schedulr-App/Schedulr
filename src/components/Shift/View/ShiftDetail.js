@@ -66,7 +66,7 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                 <p class='bold'>Shift Location</p>
                 <p class='minor'>{shiftState.street} {shiftState.city}, {shiftState.state} {shiftState.zip}</p>
                 <div class='mapBorder'>
-                    <Map location={locationState} />
+                    {/* <Map location={locationState} /> */}
                 </div>
             </div>
             :

@@ -24,6 +24,8 @@ import WorkerDetail from './components/Workforce/View/WorkerDetail';
 import Reporting from './components/Reporting';
 import WorkerRemove from './components/Shift/Update/WorkerRemove';
 import ManageStaff from './components/Shift/Update/ManageStaff';
+import '@progress/kendo-theme-default/dist/all.css';
+import Dashboard from './components/Metrics/Dashboard';
 
 require('dotenv').config();
 
@@ -31,7 +33,7 @@ function App() {
   
   let history = useHistory()
 
-  const URL = 'https://schedulrapi.herokuapp.com'
+  const URL = 'http://localhost:8000'
  
   function handleRequest(address){
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)}
@@ -147,6 +149,10 @@ function App() {
             render = {() => <Reporting URL={URL}/>}
         />
 
+        {/* Routing for dashboard */}
+        <Route exact path = '/dashboard'
+            render = {() => <Dashboard URL={URL}/>}
+        />
 
       </main>
     </div>

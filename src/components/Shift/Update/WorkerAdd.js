@@ -22,8 +22,12 @@ const WorkerAdd = ({match, URL, history}) => {
         axios.put(`${URL}/shifts/assign`, formState)
             .then(res => {
                 console.log(res)
-                history.push(`/shift/${match.params.id}`)
+                if (res.status === 250){
+                    alert(res.data)
+                }
+
             })
+            .then(history.push(`/shift/${match.params.id}`))
     }
 
     function handleChange(event){
