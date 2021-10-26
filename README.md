@@ -6,14 +6,14 @@ Schedulr is a web-based application that allows temporary staffing companies to 
 
 ## Most Recent Developments
  - Reporting Suite
- - Metric Visualization Tools
+ - Metric Visualization Tools ([Select the Calendar Icon](https://schedulrapp.herokuapp.com/dashboard))
  - Enhanced Logic and QOL Improvements
  - Improved Staff Management on Orders
 
 ## Future Development Goals
 
  - Worker Portal & Functionality
- - User Authentication
+ - User Authenticationgit s
  - Filtering
  - More Robust Metrics
  - Further QOL Improvements
