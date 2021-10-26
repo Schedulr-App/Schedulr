@@ -18,11 +18,9 @@ import PositionDetail from './components/Shift/Positions/PositionDetail';
 import EditPosition from './components/EditPosition';
 import Workforce from './components/Workforce/View/Workforce';
 import ShiftEdit from './components/Shift/Update/ShiftEdit';
-import WorkerAdd from './components/Shift/Update/WorkerAdd';
 import WorkerCreate from './components/Workforce/Create/WorkerCreate';
 import WorkerDetail from './components/Workforce/View/WorkerDetail';
 import Reporting from './components/Reporting';
-import WorkerRemove from './components/Shift/Update/WorkerRemove';
 import ManageStaff from './components/Shift/Update/ManageStaff';
 import '@progress/kendo-theme-default/dist/all.css';
 import Dashboard from './components/Metrics/Dashboard';
@@ -33,7 +31,7 @@ function App() {
   
   let history = useHistory()
 
-  const URL = 'http://localhost:8000'
+  const URL = 'https://schedulrapi.herokuapp.com'
  
   function handleRequest(address){
   axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)}
