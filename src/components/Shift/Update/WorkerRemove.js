@@ -16,7 +16,6 @@ const WorkerRemove = ({match, URL, history, shiftState}) => {
         event.preventDefault()
         axios.put(`${URL}/shifts/remove`, formState)
             .then(res => {
-                console.log(res)
                 history.push(`/shift/${match.params.id}`)
             })
     }
