@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Filters from './Filters'
 
 const Shifts = ({shiftState, URL}) => {
 
@@ -23,6 +24,9 @@ const Shifts = ({shiftState, URL}) => {
             <div class='headContainer'>
                 <h1 class = 'col'>Posted Shifts</h1>
                 <p class = 'col bold'>{listState.length} Total Shifts </p>
+            </div>
+            <div className="filterContainer">
+                <Filters />
             </div>
             <hr/>
             {listState.map(item => {

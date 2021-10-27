@@ -1,13 +1,18 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import ReactTooltip from 'react-tooltip';
 
 const Nav = () => {
     return (
         <div>
             <nav class='sticky'>
+                <a data-tip="View your dashboard">
+
                 <Link to={'/dashboard'}>
                     <img src="/calendar.png" alt="Calendar" className="navLogo" />
                 </Link>
+                </a>
+                <ReactTooltip place="top" type="dark" effect="solid"/>
                 <div class="dropdown">
                     <button class="navItem dropbtn">Shifts
                         {/* <i class="fa fa-caret-down"></i> */}
