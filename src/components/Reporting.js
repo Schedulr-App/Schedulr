@@ -5,13 +5,23 @@ const Reporting = ({URL}) => {
 
     const FileDownload = require('js-file-download');
 
-    const pullReport = () => {
+    const pullShifts = () => {
         axios({
-            url: `${URL}/export`,
+            url: `${URL}/export/shifts`,
             method: 'GET',
             responseType: 'blob',
         }).then((response) => {
             FileDownload(response.data, 'shift_detail.csv')
+        });
+    }
+
+    const pullStaff = () => {
+        axios({
+            url: `${URL}/export/staff`,
+            method: 'GET',
+            responseType: 'blob',
+        }).then((response) => {
+            FileDownload(response.data, 'staff_list.csv')
         });
     }
 
@@ -26,7 +36,14 @@ const Reporting = ({URL}) => {
                     <div class="reportInfo">
                         <p class="reportReq col bold">Shift Detail Export</p>
                         <p class="dropInfo reportSummary">Report showing all information on shifts including company info, position info, and worker info. Report is granular to shift level.</p>
-                        <button class ='button col export update' onClick={pullReport}>Export</button>
+                        <button class ='button col export update' onClick={pullShifts}>Export</button>
+                    </div>
+                </div>
+                <div class="reportRow">
+                    <div class="reportInfo">
+                        <p class="reportReq col bold">Staff List Export</p>
+                        <p class="dropInfo reportSummary">Report showing all information on staff.</p>
+                        <button class ='button col export update' onClick={pullStaff}>Export</button>
                     </div>
                 </div>
             </div>

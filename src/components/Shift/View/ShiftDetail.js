@@ -54,7 +54,7 @@ const ShiftDetail = ({match, shiftState, setShiftState, URL}) => {
                         <hr/>
                             {shiftState.staff_info.map(item => {
                                 return(
-                                    <Link to={`/workforce/${item.id}/detail`}>
+                                    <Link to={`/workforce/${item.id}/detail`} target='_blank'>
                                         <p>{item.firstname} {item.lastname}</p>
                                     </Link>
                                 )

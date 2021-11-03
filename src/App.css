@@ -477,3 +477,14 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.chartKey {
+  max-width: 30vw;
+
+  margin: 0 auto;
+}
+
+.keyItem {
+  padding: 10px;
+  margin-left: 10px;
+}

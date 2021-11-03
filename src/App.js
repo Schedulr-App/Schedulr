@@ -1,12 +1,10 @@
 import './App.css';
 import axios from 'axios';
-import {Fragment, useState} from 'react';
+import {useState} from 'react';
 import {Route, useHistory} from 'react-router-dom'
 import Nav from './components/Nav';
 import Companies from './components/Companies/View/Companies';
 import CompanyDetail from './components/Companies/View/CompanyDetail';
-import Map from './components/Shift/View/Map'
-import AddressForm from './components/Shift/Create/AddressForm';
 import Shifts from './components/Shift/View/Shifts';
 import ShiftDetail from './components/Shift/View/ShiftDetail';
 import CompanyForm from './components/Companies/Create/CompanyForm'
@@ -33,9 +31,6 @@ function App() {
 
   const URL = 'http://localhost:8000'
  
-  function handleRequest(address){
-  axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.REACT_APP_API_KEY}`)}
-
   function handleCreate(data, slug){
     const payload = data
     console.log(payload)
@@ -59,7 +54,6 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      {/* <AddressForm addressState={addressState} setAddressState={setAddressState} handleRequest={handleRequest}/> */}
       <main>
 
          {/* Routing for companies list */}

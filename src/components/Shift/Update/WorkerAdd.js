@@ -21,6 +21,7 @@ const WorkerAdd = ({match, URL, history}) => {
         event.preventDefault();
         axios.put(`${URL}/shifts/assign`, formState)
             .then(res => {
+                console.log(res)
                 if (res.status === 250){
                     alert(res.data)
                 }
