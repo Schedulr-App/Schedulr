@@ -22,6 +22,9 @@ import Reporting from './components/Reporting';
 import ManageStaff from './components/Shift/Update/ManageStaff';
 import '@progress/kendo-theme-default/dist/all.css';
 import Dashboard from './components/Metrics/Dashboard';
+import LocationList from './components/Locations/LocationList';
+import AddressForm from './components/Shift/Create/AddressForm';
+import LocationForm from './components/Locations/LocationForm';
 
 require('dotenv').config();
 
@@ -41,6 +44,10 @@ function App() {
     const payload = data
     console.log(payload)
     axios.put(`${URL}/${slug}/${id}`, payload)
+  }
+
+  function handleFetch(slug){
+      axios.get(`${URL}/${slug}`)
   }
 
   const [companyState, setCompanyState] = useState({})
@@ -144,6 +151,16 @@ function App() {
         {/* Routing for dashboard */}
         <Route exact path = '/dashboard'
             render = {() => <Dashboard URL={URL}/>}
+        />
+        
+        {/* Routing for location list */}
+        <Route exact path = '/locations'
+            render = {() => <LocationList URL={URL} handleFetch={handleFetch}/>}
+        />
+
+        {/* Routing for adding location */}
+        <Route exact path = '/locations/new'
+            render = {() => <LocationForm URL={URL} handleCreate={handleCreate}/>}
         />
 
       </main>

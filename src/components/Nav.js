@@ -46,6 +46,16 @@ const Nav = () => {
                        <Link class = 'navDrop' to={'/workforce/new'}>Add Worker</Link>
                     </div>
                 </div>
+                <div class="dropdown">
+                    <button class="navItem dropbtn">Locations
+                        {/* <i class="fa fa-caret-down"></i> */}
+                    </button>
+                    <div class="dropdown-content">
+                       <Link class = 'navDrop' to={'/locations'}>Location List</Link>
+                       <br/>
+                       <Link class = 'navDrop' to={'/locations/new'}>Add Location</Link>
+                    </div>
+                </div>
                 <Link class='navItem' to={'/reporting'}>Reporting</Link>
                 {/* <Link class='navItem' >My Profile</Link> */}
             </nav>
